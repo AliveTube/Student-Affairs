@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <div class = "topnav">
+        <a href = "">Homepage</a>
+        <a href ="" >Add New Student</a>
+        <a href="">Students Data </a>
+        <a href="">Edit Existing Data</a>
+        <a href="">Assign Student epartment</a>
+        <a href = "">Active/Inactive Students</a>
+    </div>
+    <div class="dropdown">
+        <label for = "dropbth">
+        </label>
+        <select smth = "dropbth" id = "dropbth">
+            <option value = "Search with">Search with</option>
+            <option value = "Name">Name</option>
+            <option value = "Address">Address</option>
+            <option value = "Id">Id</option>
+            <option value = "GPA">GPA</option>
+            <option value = "Department">Department</option>
+            <option>
+                <input type = "text" placeholder="Search...">
+            </option>
+        </select>
+
+    <!--Fake table until we make ours-->
+    <div class="table">
+        <table >
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Id</th>
+                <th>GPA</th>
+                <th>Department</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Ayman</td>
+                <td>elmohandseen</td>
+                <td>20210038</td>
+                <td>3.6</td>
+                <td>IS</td>
+                <td><button>Edit</button></td>
+                
+            </tr>
+            <tr>
+                <td>Hana</td>
+                <td>Helwan</td>
+                <td>20210192</td>
+                <td>3.5</td>
+                <td>AI</td>
+                <td><button>Edit</button></td>
+            </tr>
+            <tr>
+                <td>Habiba</td>
+                <td>Haram</td>
+                <td>20210033</td>
+                <td>3.7</td>
+                <td>CS</td>
+                <td><button>Edit</button></td>
+            </tr>
+            <tr>
+                <td>Abdullah</td>
+                <td>6th october</td>
+                <td>20210093</td>
+                <td>3</td>
+                <td>DS</td>
+                <td><button>Edit</button></td>
+            </tr>
+        </table>
+    </div>
+    
+</html>
