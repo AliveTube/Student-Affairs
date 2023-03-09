@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Students Data</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Students Data</h1>
+        <hr>
+        <div class = "options" style="font-size: large;">
+            <a href="Homepage.html">Home</a>
+            -
+            <a href="StudentsData.html">Students Data</a>
+            -
+            <a href="AddNewStudent.html">Add New Student</a>
+            -
+            <a href="Department.html">Assign Department</a>
+            -
+            <a href="Status.html">Students Status</a>
+            -
+            <a href="Edit.html">Edit Students</a>
+        </div>
+        <hr><br>
+        <form>
+            <div class="dropdown">
+                <select id = "drpbth">
+                    <option value = "Search with">Search with</option>
+                    <option value = "Name">Name</option>
+                    <option value = "Address">Address</option>
+                    <option value = "ID">ID</option>
+                    <option value = "GPA">GPA</option>
+                    <option value = "Department">Department</option>
+                </select>
+                <input type = "text" placeholder="Search...">
+                <button type = "submit"> Search </button>
+            </div>
+        </form>
+        <br>
+        <!--Fake table until we make ours-->
+        <div class="table">
+            <table >
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Id</th>
+                    <th>GPA</th>
+                    <th>Department</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Ayman</td>
+                    <td>El-Mohandseen</td>
+                    <td>20210038</td>
+                    <td>3.6</td>
+                    <td>IS</td>
+                    <td><a href = "Edit.html"><button>Edit</button></a></td>
+                </tr>
+                <tr>
+                    <td>Hana</td>
+                    <td>Helwan</td>
+                    <td>20210192</td>
+                    <td>3.5</td>
+                    <td>AI</td>
+                    <td><a href = "Edit.html"><button>Edit</button></a></td>
+                </tr>
+                <tr>
+                    <td>Habiba</td>
+                    <td>Haram</td>
+                    <td>20210033</td>
+                    <td>3.7</td>
+                    <td>CS</td>
+                    <td><a href = "Edit.html"><button>Edit</button></a></td>
+                </tr>
+                <tr>
+                    <td>Abdullah</td>
+                    <td>6th october</td>
+                    <td>20210093</td>
+                    <td>3</td>
+                    <td>DS</td>
+                    <td><a href = "Edit.html"><button>Edit</button></a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
