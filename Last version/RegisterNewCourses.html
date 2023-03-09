@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register New Course</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Register New Course</h1>
+    <hr>
+    <nav>
+        <ul>
+            <li>
+            <a href="RegisterdCourses.html"> Registered Courses </a>
+            </li>
+            <li>
+            <a href="RegisterNewCourses.html"> Register New Courses </a>
+            </li>
+            <li>
+            <a href="Profile.html"> Profile </a>
+            </li>
+        </ul>
+    </nav>
+    <hr>
+    <form>
+        <fieldset>
+            <legend style = "font-size: 26px;">Register Courses</legend>
+            <div>
+                <p style = "font-size: larger;">
+                    <strong> Select Groups : </strong>
+                    <select name="Groups">
+                        <option label=" "></option>
+                        <option value = "A"> A </option>
+                        <option value = "B"> B </option>
+                    </select>
+                </p>
+                <p style = "font-size: larger;"><strong>Mandatory Courses</strong></p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "SoftwareEngineering" value = "SoftwareEngineering">
+                    <label for = "SoftwareEngineering"> Software Engineering </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "WebDevelopment" value = "WebDevelopment">
+                    <label for = "WebDevelopment"> Web Development </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "Math-3" value = "Math-3">
+                    <label for = "Math-3"> Math-3 </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "DiscreteMath" value = "DiscreteMath">
+                    <label for = "DiscreteMath"> Discrete Math </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "DataBase" value = "DataBase">
+                    <label for = "DataBase"> Data Base </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+                <p>
+                    <input type = "checkbox" name = "MCourses" id = "LogicDesign" value = "LogicDesign">
+                    <label for = "LogicDesign"> Logic Design </label>
+                    <select name="Sections">
+                        <option label=" "></option>
+                        <option value = "S1"> S1 </option>
+                        <option value = "S3"> S3 </option>
+                        <option value = "S31"> S31 </option>
+                    </select>
+                </p>
+            </div>
+            <hr>
+            <div>
+                <p style = "font-size: larger;"> <strong>Elective Courses</strong></p>
+                    <p>
+                        <input type = "checkbox" name = "ECourses" id = "HumanRights" value = "HumanRights">
+                        <label for = "HumanRights"> Human Rights </label>
+                        <select name="Sections">
+                            <option value = "All"> All </option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type = "checkbox" name = "ECourses" id = "CriticalThinking" value = "CriticalThinking">
+                        <label for = "CriticalThinking"> Critical Thinking </label>
+                        <select name="Sections">
+                            <option value = "All"> All </option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type = "checkbox" name = "ECourses" id = "Ethics" value = "Ethics">
+                        <label for = "Ethics"> Ethics </label>
+                        <select name="Sections">
+                            <option value = "All"> All </option>
+                        </select>
+                    </p>
+            </div>
+            <button value = "submit">Submit</button>
+        </fieldset>
+    </form>
+</body>
+</html>
