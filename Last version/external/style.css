@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+/* Welcome section styles */
+.welcome {
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .welcome h1 {
+        margin-top: 80px;
+        margin-bottom: 20px;
+        font-size: 45px;
+        color: #083d8d;
+    }
+
+    .welcome p {
+        font-size: 25px;
+        line-height: 1.5;
+        color: #666666;
+    }
+
+/* Navigation styles */
+nav {
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    background-color: #083d8d;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 0px;
+    }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+            nav ul li a {
+                display: inline-block;
+                font-family: "Times New Roman";
+                font-size: 25px;
+                padding: 20px;
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+                nav ul li a:hover, nav ul li a.active {
+                    background-color: #ffffff;
+                    color: #083d8d;
+                }
+
+.slideshow {
+    margin-bottom: 50px;
+}
+
+.slideshow img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 600px;
+}
+
+/* Services section styles */
+.services {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+    .services p.head {
+        color: #083d8d;
+        text-align: left;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    .services ul {
+        list-style: circle;
+        margin-left: 30px;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .services li {
+        color: #3c4a5a;
+    }
+
+    .services p {
+        color: #3c4a5a;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+        .services p a {
+            text-decoration: none;
+            color: #083d8d;
+            font-weight: bold;
+        }
+
+            .services p a:hover {
+                color: blue;
+            }
+
+/* Footer styles */
+footer {
+    font-size: 20px;
+    background-color: #3c4a5a;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+    footer p {
+        margin: 0;
+    }
