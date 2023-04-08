@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+* {
+    font-family: 'Times New Roman';
+}
+/* Navigation styles */
+nav {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background-color: #083d8d;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+   
+}
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        margin: 0px;
+    }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+            nav ul li a {
+                display: inline-block;
+                font-size: 20px;
+                padding: 20px;
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+                nav ul li a:hover, nav ul li a.active {
+                    background-color: #ffffff;
+                    color: #083d8d;
+                }
+                nav ul li.b{
+                    background-color: white;
+                }
+                nav ul li.b a{
+                    color:#083d8d;
+                }
+/* Search bar styles */
+form button{
+    padding : 11px;
+    border : none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 15px;
+    font-weight: 300;
+    background-color: #083d8d;  
+    color : white;
+
+}
+form input{
+    border-color:#3c4a5a;
+    border-width: 1px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height : 35px;
+    width: 500px;
+    outline: none;
+    
+}
+:focus::placeholder{
+    color: transparent;
+}
+form select{
+    padding : 7px;
+    border : none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 15px;
+    font-weight: 300;
+    height : 35px;
+    width: 120px;
+    background-color: #083d8d;  
+    color : white;
+    outline: none;
+}
+
+  
+/* table styles */
+table{
+    border-collapse: collapse;
+    border: 1px solid;
+    border-color :#3c4a5a;
+    width :95%;
+    margin:20px;
+    
+
+}
+    table tr th{
+        padding : 20px;
+        color :#083d8d;
+        border-bottom: 1px solid #ddd;
+        text-align:center;
+    }
+    table tr td{
+        padding : 20px;
+        padding-bottom : 8px;
+        text-align: center;
+        color :#3c4a5a;
+    }
+    table tr td a button{
+        padding : 11px;
+        border : none;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 300;
+        width : 90px;
+        background-color: #083d8d; 
+        color : white;
+    }
+
