@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Students Data</title>
-        <link rel = "stylesheet" href = "stylesheet.css">
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li class="a"><a href="Homepage.html">Home</a></li>
-                <li class="b"><a href="StudentsData.html">Students Data</a></li>
-                <li class="c"><a href="AddNewStudent.html">Add New Student</a></li>
-                <li class="d"><a href="Department.html">Assign Department</a></li>
-                <li class="e"><a href="Status.html">Students Status</a></li>
-            </ul>
-        </nav> 
-        <br><br><br><br><br><br><br><br>
-        <form>
-            <select>
-                <option value = "search with">Search with</option>
-                <option value = "Name">Name</option>
-                <option value = "Address">Address</option>
-                <option value = "ID">ID</option>
-                <option value = "GPA">GPA</option>
-                <option value = "Department">Department</option>
-            </select>
-            <input type = "text" placeholder="Search">
-            <button type = "submit"> Search </button>
-        </form>
-        <br><br><br><br>
-        <!--Fake table until we make ours-->
-            <table >
-                <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>ID</th>
-                    <th>GPA</th>
-                    <th>Department</th>
-                    <th>Edit Student info</th>
-                </tr>
-                <tr>
-                    <td>Ayman</td>
-                    <td>El-Mohandseen</td>
-                    <td>20210038</td>
-                    <td>3.6</td>
-                    <td>IS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Hana</td>
-                    <td>Helwan</td>
-                    <td>20210192</td>
-                    <td>3.5</td>
-                    <td>AI</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Habiba</td>
-                    <td>Haram</td>
-                    <td>20210033</td>
-                    <td>3.7</td>
-                    <td>CS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Abdullah</td>
-                    <td>6th october</td>
-                    <td>20210093</td>
-                    <td>3</td>
-                    <td>DS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Amr</td>
-                    <td>shbenelkom</td>
-                    <td>20210193</td>
-                    <td>3</td>
-                    <td>DS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>koko</td>
-                    <td> Dokii</td>
-                    <td>20210293</td>
-                    <td>3</td>
-                    <td>IS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-            </table>
-        
-    </body>
+<head>
+    <title>Students Data</title>
+    <link rel="stylesheet" href="../external/style.css">
+    <script src="../external/script.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+            <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+            <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+            <li><a href="Status.html" class="nav-link">Students Status</a></li>
+        </ul>
+    </nav>
+    <script>keepHighlighted();</script>
+
+    <br><br><br><br><br>
+    <form>
+        <select>
+            <option value="search with">Search with</option>
+            <option value="Name">Name</option>
+            <option value="Address">Address</option>
+            <option value="ID">ID</option>
+            <option value="GPA">GPA</option>
+            <option value="Department">Department</option>
+        </select>
+        <input type="text" placeholder="Search">
+        <button type="submit"> Search </button>
+    </form>
+    <br>
+    <!--Fake table until we make ours-->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>ID</th>
+            <th>GPA</th>
+            <th>Department</th>
+            <th>Edit Student info</th>
+        </tr>
+        <tr>
+            <td>Ayman</td>
+            <td>El-Mohandseen</td>
+            <td>20210038</td>
+            <td>3.6</td>
+            <td>IS</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+        <tr>
+            <td>Hana</td>
+            <td>Helwan</td>
+            <td>20210192</td>
+            <td>3.5</td>
+            <td>AI</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+        <tr>
+            <td>Habiba</td>
+            <td>Haram</td>
+            <td>20210033</td>
+            <td>3.7</td>
+            <td>CS</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+        <tr>
+            <td>Abdullah</td>
+            <td>6th october</td>
+            <td>20210093</td>
+            <td>3</td>
+            <td>DS</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+        <tr>
+            <td>Amr</td>
+            <td>shbenelkom</td>
+            <td>20210193</td>
+            <td>3</td>
+            <td>DS</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+        <tr>
+            <td>koko</td>
+            <td>Dokii</td>
+            <td>20210293</td>
+            <td>3</td>
+            <td>IS</td>
+            <td><a href="Edit.html"><button>Edit</button></a></td>
+        </tr>
+    </table>
+
+</body>
 </html>
