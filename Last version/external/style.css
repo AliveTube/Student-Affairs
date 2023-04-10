@@ -141,7 +141,6 @@ form button {
     background-color: #083d8d;
     color: white;
 }
-
 form input {
     border-color: #3c4a5a;
     border-width: 1px;
@@ -210,3 +209,49 @@ table {
             background-color: #083d8d;
             color: white;
         }
+/*Login */
+.main{
+    background-color:#083d8d;
+}
+.login{
+    text-align:center;
+    margin-top : 120px;
+    background-color: white;
+    padding-top : 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left:350px;
+    color :#083d8d;
+    font-size:30px;
+    width : 50%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 6px #ccc;
+}
+
+.login h2{
+    font-size : 50px;
+}
+.login button{
+    border:none;
+    outline:none;
+    font-size:20px;
+    border-radius: 30px;
+    padding: 9px 17px;
+    background-color: #083d8d;
+    color:white;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}
+.login input{
+    border: 1px solid ; /* set the border to a 1px solid black line */
+    outline: none;
+    border-color:#083d8d;
+    border-radius: 15px;
+    padding : 6px;
+    padding-right: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+}
+
