@@ -32,4 +32,22 @@ function keepHighlighted() {
         }
     });
 
+
 }
+/*Login*/
+localStorage.setItem(20210083,"Aya");
+function validate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(localStorage.getItem(username)!=password){
+        document.getElementById("wrong").style.display="block";
+        document.getElementById("loginButton").style.marginTop = "15px";
+    }else{
+        if(localStorage.getItem(username)===password){
+            const button = document.querySelector('#loginButton');
+            window.location.href = "Homepage.html";
+    
+        }
+    }
+}
+
