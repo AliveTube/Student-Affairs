@@ -3,21 +3,22 @@
     <head>
         <title>Log In</title>
         <meta charset="UTF-8">
-        <link rel= "stylesheet" href = "style - Copy.css">
+        <link rel= "stylesheet" href = "../external/style.css">
+        <script src="../external/script.js">
+        </script>
     </head>
-
     <body class = "main">
         <div class = "login">
             <h2>Welcome Back!</h2>
             <div class = "input">
                 <label>Username: </label>   
-                <input type="text" placeholder="Enter Username" name="username" required> 
+                <input type="text" placeholder="Enter Username" id="username" required> 
                 <br><br>
                 <label>Password: </label>   
-                <input type="password" placeholder="Enter Password" name="password" required>  
+                <input type="password" placeholder="Enter Password" id="password" required>  
             </div>
-            <br><br>
-            <button type="submit">Login</button>  
+            <p id ="wrong">Invalid username or password! Please Try Again.</p>
+            <button type="submit" id="loginButton" onclick="validate()">Login</button> 
         </div>
     </body>
 </html>
