@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <title>Students Data</title>
-        <link rel = "stylesheet" href = "stylesheet.css">
+        <link rel = "stylesheet" href = "style - Copy.css">
+        <script src="script.js"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -16,78 +17,14 @@
             </ul>
         </nav> 
         <br><br><br><br><br><br>
-        <form>
-            <select>
-                <option value = "search with">Search with</option>
-                <option value = "Name">Name</option>
-                <option value = "Address">Address</option>
-                <option value = "ID">ID</option>
-                <option value = "GPA">GPA</option>
-                <option value = "Department">Department</option>
-            </select>
-            <input type = "text" placeholder="Search">
-            <button type = "submit"> Search </button>
-        </form>
+        <div id="searchbar">
+            <input type = "text" id = "searchB" placeholder="Search With Name...">
+            <button type="submit" onclick = " filterdata()">Search </button>
+        </div>
         <br><br>
-        <!--Fake table until we make ours-->
-            <table >
-                <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>ID</th>
-                    <th>GPA</th>
-                    <th>Department</th>
-                    <th>Edit Student info</th>
-                </tr>
-                <tr>
-                    <td>Ayman</td>
-                    <td>El-Mohandseen</td>
-                    <td>20210038</td>
-                    <td>3.6</td>
-                    <td>IS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Hana</td>
-                    <td>Helwan</td>
-                    <td>20210192</td>
-                    <td>3.5</td>
-                    <td>AI</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Habiba</td>
-                    <td>Haram</td>
-                    <td>20210033</td>
-                    <td>3.7</td>
-                    <td>CS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Abdullah</td>
-                    <td>6th october</td>
-                    <td>20210093</td>
-                    <td>3</td>
-                    <td>DS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>Amr</td>
-                    <td>shbenelkom</td>
-                    <td>20210193</td>
-                    <td>3</td>
-                    <td>DS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-                <tr>
-                    <td>koko</td>
-                    <td> Dokii</td>
-                    <td>20210293</td>
-                    <td>3</td>
-                    <td>IS</td>
-                    <td><a href = "Edit.html"><button>Edit</button></a></td>
-                </tr>
-            </table>
-        
+        <div id="Table"></div>
+        <script>
+            GetData();
+        </script>
     </body>
 </html>
