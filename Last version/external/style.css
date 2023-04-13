@@ -130,12 +130,12 @@ footer {
     }
 
 /* Search bar styles */
-form {
+#searchbar {
 
     margin-left: 20px;
 }
 
-    form button {
+#searchbar button {
         padding: 10px;
         border: none;
         border-top-right-radius: 10px;
@@ -145,8 +145,8 @@ form {
         background-color: #083d8d;
         color: white;
     }
-    form input {
-        border-color: #3c4a5a;
+    #searchbar input {
+        border: 1px solid #6c6d6eb9 ;
         border-width: 1px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -159,32 +159,14 @@ form {
         color: transparent;
     }
 
-    form select {
-        padding: 7px;
-        border: none;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        font-size: 15px;
-        font-weight: 300;
-        height: 35px;
-        width: 120px;
-        background-color: #083d8d;
-        color: white;
-        outline: none;
-    }
-    form select option:hover{
-        background: white;
-        color : black;
-    }
+    
 
 
 
 /* table styles */
 table {
-   
     border-collapse: collapse;
-    border: 1px solid;
-    border-color: #3c4a5a;
+    border: 1px solid #777a7c9d ;
     width: 95%;
     margin: 20px;
 }
@@ -203,15 +185,8 @@ table {
         color: #3c4a5a;
     }
 
-        table tr td a button {
-            padding: 11px;
-            border: none;
-            border-radius: 20px;
-            font-size: 15px;
-            font-weight: 300;
-            width: 90px;
-            background-color: #083d8d;
-            color: white;
+        table tr td img{
+          width: 30px;
         }
 /*Login */
 .main{
