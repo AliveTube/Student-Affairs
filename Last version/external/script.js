@@ -105,7 +105,91 @@ function filterdata(){
     }
 
 }
-
+function validateID(){
+  var id=document.getElementById("id-field").value;
+  const exp = /^[0-9]+$/;
+  if(exp.test(id)==0){
+    return false; 
+  }
+  else{
+    return true;
+  }
+} 
+function validatePhone(){
+  var id=document.getElementById("phone-field").value;
+  const exp = /^[0-9]+$/;
+  if(exp.test(id)==0){
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+function validate(PreviousID){
+  var flag=true;
+  if(validateID()==0||validatePhone()==0){
+    alert("Invalid Phone number or ID please try again!");
+    flag=false;
+  }
+  let id=document.getElementById("id-field").value;
+  var arr=[
+    document.getElementById("name-field").value,
+    document.getElementById("id-field").value,
+    document.getElementById("gpa-field").value,
+    document.getElementById("gender-field").value,
+    document.getElementById("department-field").value,
+    document.getElementById("level-field").value,
+    document.getElementById("status-field").value,
+    document.getElementById("email-field").value,
+    document.getElementById("phone-field").value,
+    document.getElementById("address-field").value
+  ];
+  if(flag==true){
+    localStorage.removeItem(PreviousID);
+    save(id,arr);
+  }
+  else{
+    for(k in localStorage){
+      var arr=JSON.parse(localStorage.getItem(k));
+      alert(arr);
+    }
+  }
+}
+function depart(){
+  var lvl=document.getElementById("level-field").value;
+  if(lvl>2){
+    document.getElementById("department-field").disabled=false;
+    return true;
+  }
+  else{
+    document.getElementById("department-field").disabled=true;
+    return false;
+  }
+}
+function search(id){
+    localStorage.clear();
+    var result=JSON.parse(localStorage.getItem(id));
+    document.getElementById("name-field").value=result[0];
+    //document.getElementById("dob-field").value=result[1];
+    document.getElementById("id-field").value=result[1];
+    document.getElementById("gpa-field").value=result[2];
+    document.getElementById("gender-field").value=result[3];
+    document.getElementById("department-field").value=result[4];
+    document.getElementById("level-field").value=result[5];
+    document.getElementById("status-field").value=result[6];
+    document.getElementById("email-field").value=result[7];
+    document.getElementById("phone-field").value=result[8];
+    document.getElementById("address-field").value=result[9];    
+    depart();
+}
+function save(key,arr){
+  alert("Data Saved!");
+  localStorage.setItem(key,JSON.stringify(arr));
+  for(k in localStorage){
+    var arr=JSON.parse(localStorage.getItem(k));
+    alert(arr);
+  }
+}
 
 
 
