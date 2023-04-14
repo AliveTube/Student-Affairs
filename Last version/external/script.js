@@ -148,12 +148,6 @@ function validate(PreviousID){
     localStorage.removeItem(PreviousID);
     save(id,arr);
   }
-  else{
-    for(k in localStorage){
-      var arr=JSON.parse(localStorage.getItem(k));
-      alert(arr);
-    }
-  }
 }
 function depart(){
   var lvl=document.getElementById("level-field").value;
@@ -192,6 +186,7 @@ function save(key,arr){
   alert("Data Saved!");
   localStorage.setItem(key,JSON.stringify(arr));
 }
+
 
 
 
