@@ -125,13 +125,15 @@ function validatePhone(){
     return true;
   }
 }
-function validate(PreviousID){
+function validate(){
   var flag=true;
   if(validateID()==0||validatePhone()==0){
     alert("Invalid Phone number or ID please try again!");
     flag=false;
   }
-  let id=document.getElementById("id-field").value;
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  const id = searchParams.get('id');
   var arr=[
     document.getElementById("name-field").value,
     document.getElementById("id-field").value,
@@ -145,7 +147,7 @@ function validate(PreviousID){
     document.getElementById("address-field").value
   ];
   if(flag==true){
-    localStorage.removeItem(PreviousID);
+    localStorage.removeItem(id);
     save(id,arr);
   }
 }
@@ -160,32 +162,35 @@ function depart(){
     return false;
   }
 }
-function search(id){
+function search(){
     localStorage.clear();
-    const arr = ["Hany",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567","4are3 el most4fa"];
-    const arr2 = ["mohamed",202102343,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-    const arr3 = ["ali",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567","4are3 el 3aree4"];
+    const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567","4are3 el most4fa"];
+    const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567","4are3 el 3aree4"];
     localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
-    localStorage.setItem(JSON.stringify(202102343), JSON.stringify(arr2));
     localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
+    const queryString = window.location.search;
+    const searchParams = new URLSearchParams(queryString);
+    const id = searchParams.get('id');
     var result=JSON.parse(localStorage.getItem(id));
     document.getElementById("name-field").value=result[0];
-    //document.getElementById("dob-field").value=result[1];
-    document.getElementById("id-field").value=result[1];
-    document.getElementById("gpa-field").value=result[2];
-    document.getElementById("gender-field").value=result[3];
-    document.getElementById("department-field").value=result[4];
-    document.getElementById("level-field").value=result[5];
-    document.getElementById("status-field").value=result[6];
-    document.getElementById("email-field").value=result[7];
-    document.getElementById("phone-field").value=result[8];
-    document.getElementById("address-field").value=result[9];    
+    document.getElementById("dob-field").value=result[1];
+    document.getElementById("id-field").value=result[2];
+    document.getElementById("gpa-field").value=result[3];
+    document.getElementById("gender-field").value=result[4];
+    document.getElementById("department-field").value=result[5];
+    document.getElementById("level-field").value=result[6];
+    document.getElementById("status-field").value=result[7];
+    document.getElementById("email-field").value=result[8];
+    document.getElementById("phone-field").value=result[9];
+    document.getElementById("address-field").value=result[10];    
     depart();
 }
 function save(key,arr){
   alert("Data Saved!");
   localStorage.setItem(key,JSON.stringify(arr));
 }
+
+
 
 
 
