@@ -168,6 +168,12 @@ function depart(){
 }
 function search(id){
     localStorage.clear();
+    const arr = ["Hany",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567","4are3 el most4fa"];
+    const arr2 = ["mohamed",202102343,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
+    const arr3 = ["ali",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567","4are3 el 3aree4"];
+    localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
+    localStorage.setItem(JSON.stringify(202102343), JSON.stringify(arr2));
+    localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
     var result=JSON.parse(localStorage.getItem(id));
     document.getElementById("name-field").value=result[0];
     //document.getElementById("dob-field").value=result[1];
@@ -185,11 +191,9 @@ function search(id){
 function save(key,arr){
   alert("Data Saved!");
   localStorage.setItem(key,JSON.stringify(arr));
-  for(k in localStorage){
-    var arr=JSON.parse(localStorage.getItem(k));
-    alert(arr);
-  }
 }
+
+
 
 
 
