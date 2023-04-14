@@ -22,8 +22,7 @@
 
    <div>
 
-    <form class="edit-form" id="edit-student-form" name="edit" onsubmit="return validate('20210083')"  >
-      <button type="button" class="show" onclick="return search('20210083')">show data</button>
+    <form class="edit-form" id="edit-student-form" name="edit" onsubmit="return validate()"  >
       <div class="form-column">
       <label for ="name-field">Student Name</label>
       <input type="text" name="name" id="name-field" placeholder="Enter Student Name"  />
@@ -72,7 +71,9 @@
     </form>
   </div> 
 
-
+  <script>
+    search();
+  </script>
 
   <div>
     <input form="edit-student-form" type="submit" value="Save Changes" />
