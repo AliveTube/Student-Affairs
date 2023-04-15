@@ -34,8 +34,9 @@ function keepHighlighted() {
 
 
 }
+
 /* Login JS */
-localStorage.setItem(20210083,"Aya")
+localStorage.setItem("Ayaali22","Aya")
 function validate(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
@@ -50,60 +51,69 @@ function validate(){
         }
     }
 }
-/*Data JS*/
-function GetData(){
-    /*test */
-    const arr = ["Hany",2003,20210083,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-    localStorage.setItem("Data", JSON.stringify(arr));
-    const arr2 = ["dydy",2003,20210083,3.8,"Female","AI",2,"Active","dydydodo@gmail.com","01234567"];
-    localStorage.setItem("Data2", JSON.stringify(arr2));
-    const arr3 = ["dydy",2003,20210093,3.8,"Female","AI",2,"Inactive","dydydodo2@gmail.com","01234567"];
-    localStorage.setItem("Data3", JSON.stringify(arr3));
-    /* don't forget to remove the things above me*/
-    var table = document.getElementById("Table");
-    var HtmlTable = "";
-    for(let key in localStorage){
-        if(key==20210083)continue;
-        const valuesArray = JSON.parse(localStorage.getItem(key));
-        HtmlTable += "<tr>";
-        if(valuesArray!=null){
-            for(let i=0;i<valuesArray.length;i++){
-                HtmlTable += "<td>" + valuesArray[i] + "</td>";
+//TEST
+const arr = ["Hany",2003,20210083,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
+localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
+const arr2 = ["dydy",2003,20210003,3.8,"Female","AI",2,"Active","dydydodo@gmail.com","01234567"];
+localStorage.setItem(JSON.stringify(20210003), JSON.stringify(arr2));
+const arr3 = ["dydy",2003,20210093,3.8,"Female","AI",2,"Inactive","dydydodo2@gmail.com","01234567"];
+localStorage.setItem(JSON.stringify(20210093), JSON.stringify(arr3));
+
+ function getData() {
+    const regex = /^[0-9]+$/;
+    let tbody = document.getElementById("data");
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+    for (let key in localStorage) {
+        if(regex.test(key)==false)continue;
+        let data = JSON.parse(localStorage.getItem(key));
+        if (data != null) {
+            tbody.appendChild(document.createElement("tr"));
+            for (let values in data) {
+            tbody.lastChild.appendChild(document.createElement("td"));
+            tbody.lastChild.lastChild.appendChild(
+                document.createTextNode(data[values])
+            );
             }
-            HtmlTable += "<td><a href=\"Edit.html?id=" +key+ "\"><img src=\"../images/pen3.png\" alt=\"\"></a></td>";
-            HtmlTable += "</tr>";
+            tbody.lastChild.appendChild(document.createElement("td"));
+            let anchor = document.createElement("a");
+            anchor.setAttribute("href","Edit2.html?id=" +key+ "");
+            let img = document.createElement("img");
+            img.setAttribute("src","pen3.png");
+            anchor.appendChild(img);
+            tbody.lastChild.lastChild.appendChild(anchor);
         }
-    }
-    if(HtmlTable != null){
-        table.innerHTML = "<table><thead><tr><th>Name</th><th>Date</th><th>ID</th><th>GPA</th><th>Gender</th><th>Department</th><th>Level</th><th>Status</th><th>Email</th><th>Mobile</th><th></th></tr></thead>"+"<tbody>"+ HtmlTable +"</tbody></table>";
-    }
-}
+        }
+ }
 
 function filterdata(){
+    const regex = /^[0-9]+$/;
     var name = document.getElementById("searchB").value;
-    var table = document.getElementById("Table");
-    table.innerHTML="";
-    var HtmlTable = "";
-    console.log(table.innerHTML);
-    for(let key in localStorage){
-        if(key==20210083)continue;
-        const valuesArray = JSON.parse(localStorage.getItem(key));
-        if(valuesArray!=null){
-           if(valuesArray[0].toLowerCase()==name.toLowerCase() && valuesArray[7]=="Active"){
-                HtmlTable += "<tr>";
-                for(let i=0;i<valuesArray.length;i++){
-                    HtmlTable += "<td>" + valuesArray[i] + "</td>";
-                }
-                HtmlTable += "<td><a href=\"Edit.html?id=" + key +"\"><img src=\"../images/pen3.png\" alt=\"\"></a></td>";
-                HtmlTable += "</tr>";
-           }
+    let tbody = document.getElementById("data");
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+    for (let key in localStorage) {
+      if(regex.test(key)==false)continue;
+      let data = JSON.parse(localStorage.getItem(key));
+      if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[7]=="Active") {
+        tbody.appendChild(document.createElement("tr"));
+        for (let values in data) {
+          tbody.lastChild.appendChild(document.createElement("td"));
+          tbody.lastChild.lastChild.appendChild(
+            document.createTextNode(data[values])
+          );
         }
+          tbody.lastChild.appendChild(document.createElement("td"));
+          let anchor = document.createElement("a");
+          anchor.setAttribute("href","Edit2.html?id=" +key+ "");
+          let img = document.createElement("img");
+          img.setAttribute("src","pen3.png");
+          anchor.appendChild(img);
+          tbody.lastChild.lastChild.appendChild(anchor);
+      }
     }
-    console.log(table.innerHTML);
-    if(HtmlTable != null){
-        table.innerHTML = "<table><thead><tr><th>Name</th><th>Date</th><th>ID</th><th>GPA</th><th>Gender</th><th>Department</th><th>Level</th><th>Status</th><th>Email</th><th>Mobile</th><th></th></tr></thead>"+"<tbody>"+ HtmlTable +"</tbody></table>";
-    }
-
 }
 function validateID(){
   var id=document.getElementById("id-field").value;
@@ -162,10 +172,10 @@ function depart(){
   }
 }
 function search(){
-    const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-    const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567"];
-    localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
-    localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
+    // const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567"];
+    // const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567"];
+    // localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
+    // localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
     const queryString = window.location.search;
     const searchParams = new URLSearchParams(queryString);
     const id = searchParams.get('id');
@@ -205,15 +215,3 @@ function getStatus() {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
