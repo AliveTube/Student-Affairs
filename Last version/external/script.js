@@ -78,7 +78,7 @@ localStorage.setItem(JSON.stringify(20210093), JSON.stringify(arr3));
             }
             tbody.lastChild.appendChild(document.createElement("td"));
             let anchor = document.createElement("a");
-            anchor.setAttribute("href","Edit2.html?id=" +key+ "");
+            anchor.setAttribute("href","Edit.html?id=" +key+ "");
             let img = document.createElement("img");
             img.setAttribute("src","pen3.png");
             anchor.appendChild(img);
@@ -107,7 +107,7 @@ function filterdata(){
         }
           tbody.lastChild.appendChild(document.createElement("td"));
           let anchor = document.createElement("a");
-          anchor.setAttribute("href","Edit2.html?id=" +key+ "");
+          anchor.setAttribute("href","Edit.html?id=" +key+ "");
           let img = document.createElement("img");
           img.setAttribute("src","pen3.png");
           anchor.appendChild(img);
