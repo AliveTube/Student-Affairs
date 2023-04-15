@@ -51,14 +51,6 @@ function validate(){
         }
     }
 }
-//TEST
-const arr = ["Hany",2003,20210083,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
-const arr2 = ["dydy",2003,20210003,3.8,"Female","AI",2,"Active","dydydodo@gmail.com","01234567"];
-localStorage.setItem(JSON.stringify(20210003), JSON.stringify(arr2));
-const arr3 = ["dydy",2003,20210093,3.8,"Female","AI",2,"Inactive","dydydodo2@gmail.com","01234567"];
-localStorage.setItem(JSON.stringify(20210093), JSON.stringify(arr3));
-
  function getData() {
     const regex = /^[0-9]+$/;
     let tbody = document.getElementById("data");
@@ -144,16 +136,18 @@ function validate(){
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   const id = searchParams.get('id');
+  // name id level dep gpa status email phone date gender
   var arr=[
     document.getElementById("name-field").value,
     document.getElementById("id-field").value,
-    document.getElementById("gpa-field").value,
-    document.getElementById("gender-field").value,
-    document.getElementById("department-field").value,
     document.getElementById("level-field").value,
+    document.getElementById("department-field").value,
+    document.getElementById("gpa-field").value,
     document.getElementById("status-field").value,
     document.getElementById("email-field").value,
     document.getElementById("phone-field").value,
+    document.getElementById("date-field").value,
+    document.getElementById("gender-field").value
   ];
   if(flag==true){
     localStorage.removeItem(id);
@@ -172,24 +166,21 @@ function depart(){
   }
 }
 function search(){
-    // const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-    // const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567"];
-    // localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
-    // localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
     const queryString = window.location.search;
     const searchParams = new URLSearchParams(queryString);
     const id = searchParams.get('id');
     var result=JSON.parse(localStorage.getItem(id));
+    // name id level dep gpa status email phone date gender
     document.getElementById("name-field").value=result[0];
-    document.getElementById("dob-field").value=result[1];
-    document.getElementById("id-field").value=result[2];
-    document.getElementById("gpa-field").value=result[3];
-    document.getElementById("gender-field").value=result[4];
-    document.getElementById("department-field").value=result[5];
-    document.getElementById("level-field").value=result[6];
-    document.getElementById("status-field").value=result[7];
-    document.getElementById("email-field").value=result[8];
-    document.getElementById("phone-field").value=result[9];  
+    document.getElementById("id-field").value=result[1];
+    document.getElementById("level-field").value=result[2];
+    document.getElementById("department-field").value=result[3];
+    document.getElementById("gpa-field").value=result[4];
+    document.getElementById("status-field").value=result[5];
+    document.getElementById("email-field").value=result[6];
+    document.getElementById("phone-field").value=result[7];
+    document.getElementById("date-field").value=result[8];
+    document.getElementById("gender-field").value=result[9];
     depart();
 }
 function save(key,arr){
