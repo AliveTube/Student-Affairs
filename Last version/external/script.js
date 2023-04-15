@@ -190,7 +190,24 @@ function save(key,arr){
   localStorage.setItem(key,JSON.stringify(arr));
 }
 
-
+function getStatus() {
+  let tbody = document.getElementById("status-tbody");
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  for (let key in localStorage) {
+    let data = JSON.parse(localStorage.getItem(key));
+    if (data != null) {
+      tbody.appendChild(document.createElement("tr"));
+      for (let values in data) {
+        tbody.lastChild.appendChild(document.createElement("td"));
+        tbody.lastChild.lastChild.appendChild(
+          document.createTextNode(data[values])
+        );
+      }
+    }
+  }
+}
 
 
 
