@@ -144,7 +144,6 @@ function validate(){
     document.getElementById("status-field").value,
     document.getElementById("email-field").value,
     document.getElementById("phone-field").value,
-    document.getElementById("address-field").value
   ];
   if(flag==true){
     localStorage.removeItem(id);
@@ -163,8 +162,8 @@ function depart(){
   }
 }
 function search(){
-    const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567","4are3 el most4fa"];
-    const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567","4are3 el 3aree4"];
+    const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567"];
+    const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567"];
     localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
     localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
     const queryString = window.location.search;
@@ -180,8 +179,7 @@ function search(){
     document.getElementById("level-field").value=result[6];
     document.getElementById("status-field").value=result[7];
     document.getElementById("email-field").value=result[8];
-    document.getElementById("phone-field").value=result[9];
-    document.getElementById("address-field").value=result[10];    
+    document.getElementById("phone-field").value=result[9];  
     depart();
 }
 function save(key,arr){
