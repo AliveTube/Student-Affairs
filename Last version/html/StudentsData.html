@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <title>Students Data</title>
-        <link rel="stylesheet" href="../external/style.css"/>
-        <script src="../external/script.js"></script>
+        <link rel = "stylesheet" href = "style - Copy.css">
+        <script src="script.js"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -22,9 +22,26 @@
             <button type="submit" onclick = " filterdata()">Search </button>
         </div>
         <br><br>
-        <div id="Table"></div>
+        <table>
+            <thead>
+                <tr>
+                <th> Name</th>
+                <th>Date</th>
+                <th>ID</th>
+                <th>GPA</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Level</th>
+                <th>Status</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
         <script>
-            GetData();
+            getData();
         </script>
     </body>
 </html>
