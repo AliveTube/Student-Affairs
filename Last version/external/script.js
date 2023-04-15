@@ -70,7 +70,7 @@ function GetData(){
             for(let i=0;i<valuesArray.length;i++){
                 HtmlTable += "<td>" + valuesArray[i] + "</td>";
             }
-            HtmlTable += "<td><a href=\"Edit.html\"><img src=\"pen3.png\" alt=\"\"></a></td>";
+            HtmlTable += "<td><a href=\"Edit.html?id=" +key+ "\"><img src=\"../images/pen3.png\" alt=\"\"></a></td>";
             HtmlTable += "</tr>";
         }
     }
@@ -94,7 +94,7 @@ function filterdata(){
                 for(let i=0;i<valuesArray.length;i++){
                     HtmlTable += "<td>" + valuesArray[i] + "</td>";
                 }
-                HtmlTable += "<td><a href=\"Edit.html\"><img src=\"pen3.png\" alt=\"\"></a></td>";
+                HtmlTable += "<td><a href=\"Edit.html?id=" + key +"\"><img src=\"../images/pen3.png\" alt=\"\"></a></td>";
                 HtmlTable += "</tr>";
            }
         }
@@ -163,7 +163,6 @@ function depart(){
   }
 }
 function search(){
-    localStorage.clear();
     const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567","4are3 el most4fa"];
     const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567","4are3 el 3aree4"];
     localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
