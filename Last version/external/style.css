@@ -1,9 +1,8 @@
-body {
+* {
     margin: 0;
     padding: 0;
     font-size: 20px;
 }
-
 /* Welcome section styles */
 .welcome {
     padding: 50px;
@@ -14,7 +13,7 @@ body {
 
     .welcome h1 {
         position: static;
-        margin-top: 80px;
+        margin-top: 20px;
         margin-bottom: 20px;
         font-size: 45px;
         color: #083d8d;
@@ -33,7 +32,7 @@ nav {
     background-color: #083d8d;
     width: 100%;
     text-align: center;
-    position: fixed;
+    position: relative;
 }
 
     nav ul {
@@ -42,11 +41,9 @@ nav {
         padding: 8px;
         margin: 0px;
     }
-
         nav ul li {
             display: inline-block;
         }
-
             nav ul li a {
                 display: inline-block;
                 font-family: "Times New Roman";
@@ -54,11 +51,10 @@ nav {
                 padding: 15px;
                 text-decoration: none;
                 color: #ffffff;
+                border-bottom: 1px solid #083d8d;
             }
-
                 nav ul li a:hover, nav ul li a.active {
-                    background-color: #ffffff;
-                    color: #083d8d;
+                    border-bottom: 1px solid #fff;
                 }
 
 .slideshow {
@@ -131,10 +127,8 @@ footer {
 
 /* Search bar styles */
 #searchbar {
-
     margin-left: 20px;
 }
-
 #searchbar button {
         padding: 10px;
         border: none;
@@ -154,14 +148,9 @@ footer {
         width: 500px;
         outline: none;
     }
-
     :focus::placeholder {
         color: transparent;
     }
-
-    
-
-
 
 /* table styles */
 table {
@@ -188,7 +177,7 @@ table {
         table tr td img{
           width: 30px;
         }
-/*Login */
+/* ---------------------------------- */
 .main{
     background-color:#083d8d;
 }
@@ -240,7 +229,7 @@ table {
     color : red;
     margin-top : 20px;
 }
-/*edit page*/
+
 .edit-form {
 	margin-top: 10rem;
     margin-left: 40rem;
@@ -263,7 +252,7 @@ table {
     font-family: 'Times New Roman', Times, serif;
 }
 .edit-form input{
-	display: inline-block; 
+	display: inline-block;
 	 margin: 0 auto;
 	text-align: center;
 	width: 100%;
@@ -290,7 +279,7 @@ table {
     background-color:white;
     border: black 1px solid;
 }
-input[type="submit"] {
+#formSubmit {
 	background-color: #083d8d;
 	color: #fff;
 	border: none;
@@ -311,13 +300,136 @@ input[type="submit"] {
 	align-items: center;
     margin-right: 50%;
     width: 100%;
-} 
+}
 .form-column{
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
 }
 .edit-field{
     border-color: #083d8d;
     width: 100px;
 }
 
+
+/* ---------------------------------- */
+fieldset{
+    border-color: #083d8d;
+    margin-left: 12px;
+    margin-right: 8px;
+}
+#departmentForm{
+    display: none;
+}
+#searchDepartment{
+    margin-top: 20px;
+    width: auto;
+}
+legend{
+    color: #083d8d;
+    font-size: 29px;
+}
+#searchBarDep{
+    padding-left:12px;
+    padding-bottom: 10px;
+}
+::placeholder{
+    font-size: 16px;
+}
+input[type="search"]{
+    font-size: 20px;
+}
+#departmentTable{
+    text-align: center;
+}
+#departmentTable tr th{
+    background-color: #083d8d;
+    color: #fff;
+}
+#departmentForm fieldset legend , #addStudentField{
+    width: auto;
+    display: block;
+    font-size: 29px;
+}
+#searchByID{
+    border-radius: 5px;
+}
+#submitReset , #submitDepChange, #submitStudent{
+    border-radius: 12px;
+    background-color: #083d8d;
+    color: #fff;
+    padding: 5px;
+    font-size: 18px;
+}
+#submitDepChange{
+    padding:8px;
+}
+#submitButton {
+    padding: 6px;
+    /* margin-left:50%; */
+    text-align: center;
+}
+/* ---------------------------------- */
+#formContainer{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-bottom: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 30px;
+}
+#inputGroup{
+    display: flex;
+    text-align: left;
+    justify-content: center;
+}
+#inputGroup div{
+    flex:1;
+    flex-direction: column;
+    display: flex;
+    margin: 20px 5px;
+}
+#formContainer input , #formContainer select{
+    font-size: 20px;
+    border-radius: 5px;
+    height: 30px;
+    outline: 0;
+}
+
+#formContainer label{
+    font-size: 26px;
+    font-weight: bold;
+    color: #083d8d;
+    text-align: left;
+    margin-bottom: 5px ;
+}
+#addStudentField{
+    margin-top: 20px;
+    margin-left: 23rem;
+    margin-right: 23rem;
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+}
+#addStudentField input {
+    padding: 4px;
+}
+#addStudentField select{
+    height: 41px;
+    border: 2px solid #000;
+    outline:0;
+}
+#addStdLegend{
+    font-size: 35px;
+    font-weight: bold;
+}
+#subButton {
+    text-align: center;
+    margin-top: 12px;
+}
+#submitStudent{
+    width: 25%;
+    font-family: 'Times New Roman', Times, serif;
+}
