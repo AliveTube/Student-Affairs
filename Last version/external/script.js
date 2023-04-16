@@ -12,6 +12,7 @@ function autoSlideShow() {
       if (slideIndex > x.length) {
           slideIndex = 1
       }
+
       x[slideIndex - 1].style.display = "block";
       setTimeout(carousel, 3000); // Change image every 3 seconds
   }
@@ -140,8 +141,7 @@ function validate(){
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   const id = searchParams.get('id');
-  // name id level dep gpa status email phone date gender
-  var arr=[
+  let arr=[
     document.getElementById("name-field").value,
     document.getElementById("id-field").value,
     document.getElementById("level-field").value,
@@ -150,16 +150,16 @@ function validate(){
     document.getElementById("status-field").value,
     document.getElementById("email-field").value,
     document.getElementById("phone-field").value,
-    document.getElementById("date-field").value,
-    document.getElementById("gender-field").value
+    document.getElementById("dob-field").value,
+    document.getElementById("gender-field").value,
   ];
   if(flag==true){
-    localStorage.removeItem(id);
-    localStorage.setItem(arr[1],JSON.stringify(arr));
-    alert("Data has been saved successfully");
+    localStorage.removeItem(id , JSON.stringify(arr));
+    localStorage.setItem(document.getElementById("id-field").value , JSON.stringify(arr));
+    alert("Data Saved!");
   }
 }
-function depart(){
+  function depart(){
   var lvl=document.getElementById("level-field").value;
   if(lvl>2){
     document.getElementById("department-field").disabled=false;
@@ -171,78 +171,79 @@ function depart(){
   }
 }
 function search(){
-    const queryString = window.location.search;
-    const searchParams = new URLSearchParams(queryString);
-    const id = searchParams.get('id');
-    var result=JSON.parse(localStorage.getItem(id));
-    // name id level dep gpa status email phone date gender
-    alert(result);
-    if(result[0] == null) return false;
-    document.getElementById("name-field").value=result[0];
-    document.getElementById("id-field").value=result[1];
-    document.getElementById("level-field").value=result[2];
-    document.getElementById("department-field").value=result[3];
-    document.getElementById("gpa-field").value=result[4];
-    document.getElementById("status-field").value=result[5];
-    document.getElementById("email-field").value=result[6];
-    document.getElementById("phone-field").value=result[7];
-    document.getElementById("date-field").value=result[8];
-    document.getElementById("gender-field").value=result[9];
-    depart();
+  // const arr = ["Hany","2012-03-23",20210083,3.8,"1","AI",2,"Active","hanyhanon@gmail.com","01234567"];
+  // const arr3 = ["ali","2012-03-23",2021024323,3.8,"2","AI",3,"Inactive","hanyhanon@gmail.com","01234567"];
+  // localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
+  // localStorage.setItem(JSON.stringify(2021024323), JSON.stringify(arr3));
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  const id = searchParams.get('id');
+  var result=JSON.parse(localStorage.getItem(id));
+  document.getElementById("name-field").value=result[0];
+  document.getElementById("id-field").value=result[1];
+  document.getElementById("level-field").value=result[2];
+  document.getElementById("department-field").value=result[3];
+  document.getElementById("gpa-field").value=result[4];
+  document.getElementById("status-field").value=result[5];
+  document.getElementById("email-field").value=result[6];
+  document.getElementById("phone-field").value=result[7];
+  document.getElementById("dob-field").value=result[8];
+  document.getElementById("gender-field").value=result[9];
+  depart();
 }
 
-//-------------------------------------------------------------------------
-// function getStatus(ev) {
-//   let tbody = document.getElementById("status-tbody");
-//   while (tbody.firstChild) {
-//     tbody.removeChild(tbody.firstChild);
-//   }
-//   for (let key in localStorage) {
-//     let data = JSON.parse(localStorage.getItem(key));
-//     if (data != null && (ev === data[5] || ev === "true")) {
-//       tbody.appendChild(document.createElement("tr"));
-//       for (let values = 0; values < 5; values++) {
-//         tbody.lastChild.appendChild(document.createElement("td"));
-//         tbody.lastChild.lastChild.appendChild(
-//           document.createTextNode(data[values])
-//         );
-//       }
-//       tbody.lastChild.appendChild(document.createElement("td"));
-//       let sel = document.createElement("select");
-//       let op1 = document.createElement("option");
-//       op1.text = op1.value = "Active";
-//       let op2 = document.createElement("option");
-//       op2.text = op2.value = "Inactive";
-//       sel.appendChild(op1);
-//       sel.appendChild(op2);
-//       sel.value = data[5];
-//       sel.addEventListener('change',()=>{
-//         data[5]=sel.value;
-//         localStorage.setItem(key,JSON.stringify(data));
-//       })
-//       tbody.lastChild.lastChild.appendChild(sel);
-//     }
-//   }
-// }
-// let btnall = document.getElementById("status-all");
-// let btnactive = document.getElementById("status-active");
-// let btninactive = document.getElementById("status-inactive");
-// window.addEventListener("load", () => {
-//   let ev = "true";
-//   getStatus(ev);
-// });
-// btnall.addEventListener("click", () => {
-//   let ev = "true";
-//   getStatus(ev);
-// });
-// btnactive.addEventListener("click", () => {
-//   let ev = "Active";
-//   getStatus(ev);
-// });
-// btninactive.addEventListener("click", () => {
-//   let ev = "Inactive";
-//   getStatus(ev);
-// });
+function getStatus(ev) {
+  let tbody = document.getElementById("status-tbody");
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+  for (let key in localStorage) {
+    let data = JSON.parse(localStorage.getItem(key));
+    if (data != null && (ev === data[5] || ev === "true")) {
+      tbody.appendChild(document.createElement("tr"));
+      for (let values = 0; values < 5; values++) {
+        tbody.lastChild.appendChild(document.createElement("td"));
+        tbody.lastChild.lastChild.appendChild(
+          document.createTextNode(data[values])
+        );
+      }
+      tbody.lastChild.appendChild(document.createElement("td"));
+      let sel = document.createElement("select");
+      let op1 = document.createElement("option");
+      op1.text = op1.value = "Active";
+      let op2 = document.createElement("option");
+      op2.text = op2.value = "Inactive";
+      sel.appendChild(op1);
+      sel.appendChild(op2);
+      sel.value = data[5];
+      sel.addEventListener('change',()=>{
+        data[5]=sel.value;
+        localStorage.setItem(key,JSON.stringify(data));
+      })
+      tbody.lastChild.lastChild.appendChild(sel);
+    }
+  }
+}
+let btnall = document.getElementById("status-all");
+let btnactive = document.getElementById("status-active");
+let btninactive = document.getElementById("status-inactive");
+window.addEventListener("load", () => {
+  let ev = "true";
+  getStatus(ev);
+});
+btnall.addEventListener("click", () => {
+  let ev = "true";
+  getStatus(ev);
+});
+btnactive.addEventListener("click", () => {
+  let ev = "Active";
+  getStatus(ev);
+});
+btninactive.addEventListener("click", () => {
+  let ev = "Inactive";
+  getStatus(ev);
+});
+
 // --------------------------------------
 function showDepartmentForm(event){
     event.preventDefault();
@@ -254,6 +255,7 @@ function resetDepartmentForm(event){
   let dep = document.getElementById("departmentForm");
   dep.style.display = "none"
 }
+
 function validateSubmit(){
   var flag=true;
   if(validateID()==0||validatePhone()==0){
