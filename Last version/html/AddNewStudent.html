@@ -3,83 +3,103 @@
     <head>
         <title>Add New Student</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../external/style.css"/>
+        <link rel="stylesheet" href="../external/style.css">
         <script src="../external/script.js"></script>
     </head>
     <body>
-        <h1>
-            <strong>Add Student</strong>
-        </h1>
-        <hr>
-        <div class = "options" style="font-size: large;">
-            <a href="Homepage.html">Home</a>
-            -
-            <a href="StudentsData.html">Students Data</a>
-            -
-            <a href="AddNewStudent.html">Add New Student</a>
-            -
-            <a href="Department.html">Assign Department</a>
-            -
-            <a href="Status.html">Students Status</a>
-        </div>
-        <hr><br>
-        <form>
-            <label for="name">Name*</label>
-            <input type="text" id="name" name="name"><br><br>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html" class="nav-link">Home</a></li>
+                <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+                <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+                <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+                <li><a href="Status.html" class="nav-link">Students Status</a></li>
+                <li><a href="Homepage.html" class="nav-link">Sign Out</a></li>
+            </ul>
+        </nav>
+        <script>keepHighlighted();</script>
+        <fieldset id = "addStudentField">
+            <legend id ="addStdLegend">
+                Add new student
+            </legend>
+            <form id = "formContainer" onsubmit="return validateSubmit();">
+                <div id = "inputGroup">
+                    <div id = "nameDiv">
+                        <label for="name-field">Name</label>
+                        <input type="text" id="name-field" name = "name-field" required placeholder="Enter student name">
+                    </div>
+                    <div id = "idDiv">
+                        <label for="id-field">ID</label>
+                        <input type="text" id="id-field" name = "id" required placeholder="Enter student ID">
+                    </div>
+                </div>
 
-            <label for="gender">Gender*</label>
-                <select name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-                </select>
-                <br><br>
+                <div id = "inputGroup">
+                    <div id = "levelDiv">
+                        <label for="level-field">Level</label>
+                        <select name="stdLevel" id="level-field" onchange="return depart()" value = 1>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                        </select>
+                    </div>
+                    <div id = "departmentDiv">
+                        <label for="department-field">Department</label>
+                        <select name="department" id="department-field" disabled default = "General" value = "General">
+                            <option value="General">General</option>
+                            <option value="CS">CS</option>
+                            <option value="IS">IS</option>
+                            <option value="AI">AI</option>
+                            <option value="IT">IT</option>
+                            <option value="DS">DS</option>
+                        </select>
+                    </div>
+                </div>
 
-            <label for="Nid">National Id*</label>
-            <input type="text" id="Nid" name="Nid"><br><br>
+                <div id = "inputGroup">
+                    <div id = "GPADiv">
+                        <label for="gpa-field">GPA</label>
+                        <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter student GPA">
+                    </div>
+                    <div id = "statusDiv">
+                        <label for="status-field">Status</label>
+                        <select name="Status" id="status-field" value = "Active">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
 
-            <label for="birth">Date of birth*</label>
-            <input type="date" id="birth" name="birth"><br><br>
-            <label for="id">Id*</label>
-            <input type="text" id="id" name="id"><br><br>
+                <div id = "inputGroup">
+                    <div id = "emailDiv">
+                        <label for="email-field">Email</label>
+                        <input type="email" id="email-field" name = "email" required placeholder="Enter student email">
+                    </div>
+                    <div id = "phoneDiv">
+                        <label for="phone-field">Phone Number</label>
+                        <input type="text" id="phone-field" name = "phone" required placeholder="Enter student phone">
+                    </div>
+                </div>
 
-            <label for="level">Level*</label>
-                <select name="level" id="level">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-                </select>
-                <br><br>
-
-            <label for="dept">Department*</label>
-                <select name="dept" id="dept">
-            <option value="general">General</option>
-            <option value="cs">CS</option>
-            <option value="is">IS</option>
-            <option value="it">IT</option>
-            <option value="ds">DS</option>
-            <option value="ai">AI</option>
-                </select>
-                <br><br>
-
-            <label for="gpa">GPA*</label>
-            <input type="text" id="gpa" name="gpa"><br><br>
-
-            <label for="state">Status*</label>
-                <select name="state" id="state">
-            <option value="active">Active</option>
-            <option value="inactive">InActive</option>
-                </select>
-                <br><br>
-
-            <label for="mNumber">Mobile Number*</label>
-            <input type="text" id="mNumber" name="mNumber"><br><br>
-
-            <label for="email">Email*</label>
-            <input type="text" id="email" name="email"><br><br>
-
-
-            <br><br><input type="submit" value="Submit">
-        </form>
+                <div id = "inputGroup">
+                    <div id = "dobDiv">
+                        <label for="studentBD">Date of birth</label>
+                        <input type="date" id="dob-field" name = "date" required>
+                    </div>
+                    <div id = "genderDiv">
+                        <label for="studentGender">Gender</label>
+                        <select name="Gender" id="gender-field" value = "Male">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div id = "subButton">
+                    <input type="submit" id = "submitStudent">
+                </div>
+            </form>
+        </fieldset>
+        
     </body>
 </html>
