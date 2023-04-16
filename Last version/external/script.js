@@ -151,7 +151,7 @@ function validate(){
   ];
   if(flag==true){
     localStorage.removeItem(id);
-    save(id,arr);
+    localStorage.setItem(arr[1],JSON.stringify(arr));
   }
 }
 function depart(){
@@ -183,11 +183,6 @@ function search(){
     document.getElementById("gender-field").value=result[9];
     depart();
 }
-function save(key,arr){
-  alert("Data Saved!");
-  localStorage.setItem(key,JSON.stringify(arr));
-}
-
 function getStatus() {
   let tbody = document.getElementById("status-tbody");
   while (tbody.firstChild) {
