@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Students Status</title>
+    <link rel="stylesheet" href="/external/style.css">
+        
+  </head>
+  <body>
+    <nav>
+      <ul>
+          <li><a href="Homepage.html" class="nav-link">Home</a></li>
+          <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+          <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+          <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+          <li><a href="Status.html" class="nav-link">Students Status</a></li>
+          <li><a href="Homepage.html" class="nav-link">Sign Out</a></li>
+      </ul>
+    </nav>
+    
+    <br><br><br><br><br>
+    <fieldset id="status-field">
+      <legend>Student Status</legend>
+      <div>
+        <label for="">Show</label>
+        <br>
+        <input type="submit" value="All Students" id="status-all">
+        <input type="submit" value="Active Students" id="status-active">
+        <input type="submit" value="In-Active Students" id="status-inactive">
+      </div>
+      <div>
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Year</th>
+            <th>Department</th>
+            <th>GPA</th>
+            <th>Status</th>
+          </thead>
+          <tbody id="status-tbody">
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
+    <script src="/external/script.js"></script>
+    <script>keepHighlighted();</script>
+  </body>
+</html>

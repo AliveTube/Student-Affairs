@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit Students</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/external/style.css">
+    <script src="/external/script.js"></script>
+  </head>
+  <body>
+
+    <nav>
+      <ul>
+          <li><a href="Homepage.html" class="nav-link">Home</a></li>
+          <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+          <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+          <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+          <li><a href="Status.html" class="nav-link">Students Status</a></li>
+          <li><a href="Homepage.html" class="nav-link">Sign Out</a></li>
+      </ul>
+  </nav>
+  <script>keepHighlighted();</script>
+  <br>
+
+  <div>
+
+    <form class="edit-form" id="edit-student-form" name="edit" onsubmit="return validate()">
+      <div class="form-column">
+      <label for ="name-field">Student Name</label>
+      <input type="text" name="name" id="name-field" placeholder="Enter Student Name"  />
+      <label for="id-field">Student ID</label>
+      <input type="text" name="id" id="id-field" placeholder="Enter Student ID"  />
+      <label for="gpa-field">Student GPA</label>
+      <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter Student GPA"  />
+      <label for="department-field">Department</label>
+      <select type = "text" name="department" id="department-field" disabled default = "General" value = "General">
+          <option value="General">General</option>
+          <option value="CS">CS</option>
+          <option value="IS">IS</option>
+          <option value="AI">AI</option>
+          <option value="IT">IT</option>
+          <option value="DS">DS</option>
+      </select>
+      </div>
+      <div class="form-column">
+      <label for="dob-field">Date of Birth</label>
+      <input type="date" name="date" id="dob-field" />
+      <label for="email-field">Email</label>
+      <input type="email" name="email" id="email-field" placeholder="example@example.com" />
+      <label for="phone-field">Phone number</label>
+      <input id="phone-field" type="text" name="phone" placeholder="01123278234" />
+      <div>
+      <div class="student-gender" >
+        <label>Gender:</label>
+          <select name="Gender" type="text" class="gender" id="gender-field" required>
+            <option value="1"> Male</option>
+            <option value="2"> Female</option>
+          </select>
+      </div>
+      <div class="student-status">
+        <label>Status:&nbsp&nbsp</label>
+          <select name="Status" id="status-field">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+      </div >
+      <div class="student-level">
+        <label>Level:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+          <select name="level" id="level-field" onchange="return depart()">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+          </select>
+      </div >
+      </div>
+    </form>
+  </div>
+
+  <script>
+    search();
+  </script>
+
+  <div>
+    <input form="edit-student-form" type="submit" value="Save Changes" />
+  </div>
+  </body>
+</html>

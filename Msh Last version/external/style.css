@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+/* Welcome section styles */
+.welcome {
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+    .welcome h1 {
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 45px;
+        color: #083d8d;
+    }
+
+    .welcome p {
+        font-size: 25px;
+        line-height: 1.5;
+        color: #666666;
+    }
+
+/* Navigation styles */
+nav {
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    background-color: #083d8d;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        margin: 0px;
+    }
+        nav ul li {
+            display: inline-block;
+        }
+            nav ul li a {
+                display: inline-block;
+                font-family: "Times New Roman";
+                font-size: 25px;
+                padding: 15px;
+                text-decoration: none;
+                color: #ffffff;
+                border-bottom: 1px solid #083d8d;
+            }
+                nav ul li a:hover, nav ul li a.active {
+                    border-bottom: 1px solid #fff;
+                }
+
+.slideshow {
+    margin-bottom: 50px;
+}
+
+.slideshow img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 600px;
+}
+
+/* Services section styles */
+.services {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+    .services p.head {
+        color: #083d8d;
+        text-align: left;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    .services ul {
+        list-style: circle;
+        margin-left: 30px;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .services li {
+        color: #3c4a5a;
+    }
+
+    .services p {
+        color: #3c4a5a;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+        .services p a {
+            text-decoration: none;
+            color: #083d8d;
+            font-weight: bold;
+        }
+
+            .services p a:hover {
+                color: blue;
+            }
+
+/* Footer styles */
+footer {
+    font-size: 20px;
+    background-color: #3c4a5a;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+    footer p {
+        margin: 0;
+    }
+
+/* Search bar styles */
+#searchbar {
+    margin-left: 20px;
+}
+#searchbar button {
+        padding: 10px;
+        border: none;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 15px;
+        font-weight: 300;
+        background-color: #083d8d;
+        color: white;
+    }
+    #searchbar input {
+        border: 1px solid #6c6d6eb9 ;
+        border-width: 1px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        height: 35px;
+        width: 500px;
+        outline: none;
+    }
+    :focus::placeholder {
+        color: transparent;
+    }
+
+/* table styles */
+table {
+    border-collapse: collapse;
+    border: 1px solid #777a7c9d ;
+    width: 95%;
+    margin: 20px;
+}
+
+    table tr th {
+        padding: 15px;
+        color: #083d8d;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    table tr td {
+        padding: 15px;
+        padding-bottom: 8px;
+        text-align: center;
+        color: #3c4a5a;
+    }
+
+        table tr td img{
+          width: 30px;
+        }
+/* ---------------------------------- */
+.main{
+    background-color:#083d8d;
+}
+.login{
+    text-align:center;
+    margin-top : 120px;
+    background-color: white;
+    padding-top : 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left:350px;
+    color :#083d8d;
+    font-size:30px;
+    width : 50%;
+    border-radius: 30px;
+    box-shadow: 0px 0px 6px #ccc;
+}
+
+.login h2{
+    font-size : 50px;
+}
+.login button{
+    border:none;
+    outline:none;
+    font-size:20px;
+    border-radius: 30px;
+    padding: 9px 17px;
+    background-color: #083d8d;
+    color:white;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-top:50px;
+
+}
+.login input{
+    border: 1px solid ; /* set the border to a 1px solid black line */
+    outline: none;
+    border-color:#083d8d;
+    border-radius: 15px;
+    padding : 6px;
+    padding-right: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+}
+.login p{
+    display: none;
+    font-size: 15px;
+    color : red;
+    margin-top : 20px;
+}
+
+.edit-form {
+	margin-top: 10rem;
+    margin-left: 40rem;
+    margin-right:40rem;
+	display: flex;
+	flex-direction: row;
+    justify-content: space-around ;
+	align-items: start;
+}
+.edit-form label{
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	max-width: 300px;
+	margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #083d8d;
+    font-family: 'Times New Roman', Times, serif;
+}
+.edit-form input{
+	display: inline-block;
+	 margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	max-width: 300px;
+	margin-bottom: 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 3px solid rgb(207, 206, 206);
+}
+.edit-form input:focus{
+    border: 3px solid black;
+}
+.edit-form input:disabled{
+    background-color: rgb(182, 181, 181);
+}
+.edit-form select{
+	display: inline-block;
+	width: auto;
+    margin-top:12px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius:8px;
+    color:black;
+    background-color:white;
+    border: black 1px solid;
+}
+#formSubmit {
+	background-color: #083d8d;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+    margin-top: 40px;
+    margin-left:45%;
+    margin-right: 50%;
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    border-radius:20px;
+    text-align: center;
+}
+.student-status , .student-gender,.student-level{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    margin-right: 50%;
+    width: 100%;
+}
+.form-column{
+    display: flex;
+    flex-direction: column;
+}
+.edit-field{
+    border-color: #083d8d;
+    width: 100px;
+}
+
+
+/* ---------------------------------- */
+fieldset{
+    border-color: #083d8d;
+    margin-left: 12px;
+    margin-right: 8px;
+}
+.hide{
+    display: none;
+}
+#searchDepartment{
+    margin-top: 20px;
+    width: auto;
+}
+legend{
+    color: #083d8d;
+    font-size: 29px;
+}
+#searchBarDep{
+    padding-left:12px;
+    padding-bottom: 10px;
+}
+::placeholder{
+    font-size: 16px;
+}
+input[type="search"]{
+    font-size: 20px;
+}
+#departmentTable{
+    text-align: center;
+}
+#departmentTable tr th{
+    background-color: #083d8d;
+    color: #fff;
+}
+#departmentForm fieldset legend , #addStudentField{
+    width: auto;
+    display: block;
+    font-size: 29px;
+}
+#searchByID{
+    border-radius: 5px;
+}
+#submitReset , #submitDepChange, #submitStudent{
+    border-radius: 12px;
+    background-color: #083d8d;
+    color: #fff;
+    padding: 5px;
+    font-size: 18px;
+}
+#submitDepChange{
+    padding:8px;
+}
+#submitButton {
+    padding: 6px;
+    /* margin-left:50%; */
+    text-align: center;
+}
+/* ---------------------------------- */
+#formContainer{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-bottom: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 30px;
+}
+#inputGroup{
+    display: flex;
+    text-align: left;
+    justify-content: center;
+}
+#inputGroup div{
+    flex:1;
+    flex-direction: column;
+    display: flex;
+    margin: 20px 5px;
+}
+#formContainer input , #formContainer select{
+    font-size: 20px;
+    border-radius: 5px;
+    height: 30px;
+    outline: 0;
+}
+
+#formContainer label{
+    font-size: 26px;
+    font-weight: bold;
+    color: #083d8d;
+    text-align: left;
+    margin-bottom: 5px ;
+}
+#addStudentField{
+    margin-top: 20px;
+    margin-left: 23rem;
+    margin-right: 23rem;
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+}
+#addStudentField input {
+    padding: 4px;
+}
+#addStudentField select{
+    height: 41px;
+    border: 2px solid #000;
+    outline:0;
+}
+#addStdLegend{
+    font-size: 35px;
+    font-weight: bold;
+}
+#subButton {
+    text-align: center;
+    margin-top: 12px;
+}
+#submitStudent{
+    width: 25%;
+    font-family: 'Times New Roman', Times, serif;
+}
