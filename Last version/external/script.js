@@ -34,7 +34,7 @@ function keepHighlighted() {
 }
 
 /* Login JS */
-localStorage.setItem("Ayaali22","Aya")
+localStorage.setItem("Ayaali22","Aya");
 function validate(){
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
@@ -48,13 +48,6 @@ function validate(){
       }
   }
 }
-//TEST
-// const arr = ["Hany",2003,20210083,3.8,"Male","AI",2,"Active","hanyhanon@gmail.com","01234567"];
-// localStorage.setItem(JSON.stringify(20210083), JSON.stringify(arr));
-// const arr2 = ["dydy",2003,20210003,3.8,"Female","AI",2,"Active","dydydodo@gmail.com","01234567"];
-// localStorage.setItem(JSON.stringify(20210003), JSON.stringify(arr2));
-// const arr3 = ["dydy",2003,20210093,3.8,"Female","AI",2,"Inactive","dydydodo2@gmail.com","01234567"];
-// localStorage.setItem(JSON.stringify(20210093), JSON.stringify(arr3));
 
 function getData() {
   const regex = /^[0-9]+$/;
@@ -94,7 +87,7 @@ function filterdata(){
   for (let key in localStorage) {
     if(regex.test(key)==false)continue;
     let data = JSON.parse(localStorage.getItem(key));
-    if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[7]=="Active") {
+    if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[5]=="Active") {
       tbody.appendChild(document.createElement("tr"));
       for (let values in data) {
         tbody.lastChild.appendChild(document.createElement("td"));
@@ -165,7 +158,7 @@ function validate(){
     alert("Data Saved!");
   }
 }
-  function depart(){
+function depart(){
   var lvl=document.getElementById("level-field").value;
   if(lvl>2){
     document.getElementById("department-field").disabled=false;
@@ -173,6 +166,7 @@ function validate(){
   }
   else{
     document.getElementById("department-field").disabled=true;
+    document.getElementById("department-field").value="General";
     return false;
   }
 }
@@ -204,6 +198,7 @@ function getStatus(ev) {
     tbody.removeChild(tbody.firstChild);
   }
   for (let key in localStorage) {
+    if (/^\d+$/.test(key) == false)continue;
     let data = JSON.parse(localStorage.getItem(key));
     if (data != null && (ev === data[5] || ev === "true")) {
       tbody.appendChild(document.createElement("tr"));
@@ -251,11 +246,6 @@ btninactive.addEventListener("click", () => {
 });
 
 // --------------------------------------
-function showDepartmentForm(event){
-    event.preventDefault();
-    let dep = document.getElementById("departmentForm");
-    dep.style.display = "block";
-}
 function resetDepartmentForm(event){
   event.preventDefault();
   let dep = document.getElementById("departmentForm");
@@ -288,4 +278,61 @@ function storeData(){
   ];
   let id = document.getElementById("id-field").value;
   localStorage.setItem(id , JSON.stringify(stdData));
+}
+function departmentTable(event){
+  event.preventDefault();
+  let tbody = document.getElementById("dptBody");
+  let stdID = document.getElementById("searchByID").value;
+  tbody.innerHTML="";
+  for (let key in localStorage){
+    if (/^\d+$/.test(key)){
+      let data = JSON.parse(localStorage.getItem(key));
+      if (data != null && data[1] === stdID){
+        document.getElementById("departmentForm").classList.remove('hide');
+        tbody.appendChild(document.createElement("tr"));
+        for (let values = 0; values < 3; values++){
+          tbody.lastChild.appendChild(document.createElement("td"));
+          tbody.lastChild.lastChild.appendChild(document.createTextNode(data[values]));
+        }
+        tbody.lastChild.appendChild(document.createElement("td"));
+        let sel = document.createElement("select");
+        let op1 = document.createElement("option");
+        op1.text = op1.value = "General";
+        let op2 = document.createElement("option");
+        op2.text = op2.value = "CS";
+        let op3 = document.createElement("option");
+        op3.text = op3.value = "IS";
+        let op4 = document.createElement("option");
+        op4.text = op4.value = "AI";
+        let op5 = document.createElement("option");
+        op5.text = op5.value = "IT";
+        let op6 = document.createElement("option");
+        op6.text = op6.value = "DS";
+        sel.appendChild(op1);
+        sel.appendChild(op2);
+        sel.appendChild(op3);
+        sel.appendChild(op4);
+        sel.appendChild(op5);
+        sel.appendChild(op6);
+        sel.value = data[3];
+        sel.setAttribute("data-stuid",data[1]);
+        tbody.lastChild.lastChild.appendChild(sel);
+      }
+    }
+  }
+}
+function setDepartment(event){
+  let formDpt = document.getElementById("departmentForm");
+  event.preventDefault();
+  let allSelects = formDpt.querySelectorAll("select");
+  for (const select of allSelects){
+    let stuid=select.getAttribute("data-stuid");
+    let student = JSON.parse(localStorage.getItem(stuid));
+    student[3] = select.value;
+    localStorage.setItem(stuid,JSON.stringify(student));
+  }
+  alert("Department has been changed successfully");
+}
+function resetDptPage() {
+  document.getElementById("departmentForm").classList.add('hide');
 }
