@@ -153,6 +153,12 @@ function validate(){
     document.getElementById("dob-field").value,
     document.getElementById("gender-field").value,
   ];
+  if(arr[9]==1){
+    arr[9]="Male";
+  }
+  else{
+    arr[9]="Female";
+  }
   if(flag==true){
     localStorage.removeItem(id , JSON.stringify(arr));
     localStorage.setItem(document.getElementById("id-field").value , JSON.stringify(arr));
