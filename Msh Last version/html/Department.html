@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Department</title>
+    <link rel="stylesheet" href="/external/style.css">
+    <script src="/external/script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+            <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+            <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+            <li><a href="Status.html" class="nav-link">Students Status</a></li>
+            <li><a href="Homepage.html" class="nav-link">Sign Out</a></li>
+        </ul>
+    </nav>
+    <script>keepHighlighted();</script>
+    <br>
+    <form id = "searchDepartment" onsubmit="departmentTable(event);" onreset="resetDptPage();">
+        <fieldset id = "searchBarDep">
+            <legend>Search with ID</legend>
+            <label for = "searchByID"> Enter ID: </label>
+            <input type = "search" name = "searchByID" id = "searchByID" placeholder="eg. 20210011" required>
+            <input type = "submit" id = "submitReset" value="Submit"></input>
+            <input type = "reset" id = "submitReset" ></input>
+        </fieldset>
+    </form>
+    <br>
+    <form id = "departmentForm" class = "hide" onsubmit="setDepartment(event);">
+        <fieldset id = "searchBarDep">
+            <legend> Assign Department</legend>
+            <br>
+            <table id = "departmentTable">
+                <th>Name</th>
+                <th>ID</th>
+                <th>Level</th>
+                <th>Department</th>
+                <tbody id = "dptBody">
+                </tbody>
+            </table>
+            <div id = "submitButton">
+                <button type = "submit" id = "submitDepChange"> Submit Changes</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
