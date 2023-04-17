@@ -26,7 +26,7 @@
       <legend id ="addStdLegend">
           Edit Student
       </legend>
-    <form id = "formContainer" onsubmit="return validate()">
+    <form id = "formContainer">
       <div id = "inputGroup">
           <div id = "nameDiv">
               <label for="name-field">Name</label>
@@ -100,10 +100,10 @@
           </div>
       </div>
       <div id = "subButton">
-          <input type="submit" id = "submitStudent" value="Save Changes">
+          <input type="submit" id = "submitStudent" value="Save Changes" onclick="return validate()">
       </div>
       <div id = "subButton">
-        <input type="submit" id = "DeleteButton" value="Delete Student">
+        <input type="submit" id = "DeleteButton" value="Delete Student" onclick="return DeleteUser()">
     </div>
     </fieldset>
   </form>

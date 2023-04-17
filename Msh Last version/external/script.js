@@ -174,7 +174,22 @@ function search(){
   document.getElementById("gender-field").value=result[9];
   depart();
 }
-
+function DeleteUser(){
+  let arr=[
+    document.getElementById("name-field").value,
+    document.getElementById("id-field").value,
+    document.getElementById("level-field").value,
+    document.getElementById("department-field").value,
+    document.getElementById("gpa-field").value,
+    document.getElementById("status-field").value,
+    document.getElementById("email-field").value,
+    document.getElementById("phone-field").value,
+    document.getElementById("dob-field").value,
+    document.getElementById("gender-field").value,
+  ];
+  localStorage.removeItem(document.getElementById("id-field").value , JSON.stringify(arr));
+  alert("Data Deleted!");
+}
 function getStatus(ev) {
   let tbody = document.getElementById("status-tbody");
   while (tbody.firstChild) {
