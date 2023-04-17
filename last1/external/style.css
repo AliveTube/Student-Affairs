@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+  }
+  /*HOME PAGE*/
+  /* Welcome section styles */
+  .welcome {
+      padding: 50px;
+      text-align: left;
+      margin-top: 350px;
+      margin-bottom: 20px;
+      margin-right: 700px;
+  }
+  
+  .welcome h1 {
+    position: static;
+    font-size: 40px;
+    color: #ffffff;
+  }
+  
+  .welcome p {
+    margin-right: 350px;
+    font-size: 30px;
+    line-height: 1.5;
+  }
+  
+  /* Navigation styles */
+  nav {
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    background-color: #083d8d;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  nav ul {
+    display: inline-block;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 0px;
+  }
+  nav ul li {
+    display: inline-block;
+  }
+  nav ul li a {
+    display: inline-block;
+    font-family: "Times New Roman";
+    font-size: 25px;
+    padding: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 1px solid #083d8d;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    border-bottom: 1px solid #fff;
+  }
+  
+  .homepageStyle nav {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    margin: 0;
+  }
+  .blackCover {
+    background-color: rgba(0, 0, 0, 0.55);
+    height: 100vh;
+  }
+  .homepageStyle {
+    background-color: #000;
+    background-image: url("../images/unkUni.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .welcome {
+    color: #fff;
+  }
+  .departments h2 {
+    font-size: 40px;
+  }
+  .departments {
+    position: relative;
+    background-image: url("../images/libPhoto.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .library-photo {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 97.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .dptBox {
+    color: #fff;
+    border-radius: 3px;
+    border: 1px solid white;
+    /* margin: 30px; */
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 25%;
+    padding: 0.5rem;
+    height: 12rem;
+    text-align: center;
+  }
+  .dptChoose h3 {
+    margin-bottom: 20rem;
+    color: #fff;
+    font-size: 56px;
+  }
+  .dptBox h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .dptBox:hover {
+    background-color: #083d8d;
+    color: #fff;
+  }
+  h3 {
+    margin-top: 0;
+  }
+  /* Services section styles */
+  .services {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #ccc;
+  }
+  
+  .services p.head {
+    color: #083d8d;
+    text-align: left;
+    margin: 10px;
+    font-weight: bold;
+  }
+  
+  .services ul {
+    list-style: circle;
+    margin-left: 30px;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .services li {
+    color: #3c4a5a;
+  }
+  
+  .services p {
+    color: #3c4a5a;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .services p a {
+    text-decoration: none;
+    color: #083d8d;
+    font-weight: bold;
+  }
+  
+  .services p a:hover {
+    color: blue;
+  }
+  
+  /* Footer styles */
+  footer {
+    font-size: 20px;
+    background-color: #3c4a5a;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  footer p {
+    margin: 0;
+  }
+  .Studentdata-field legend {
+    margin-left: 1%;
+  }
+  /*-------------------------*/
+  #homepage-MVA {
+    display: flex;
+  }
+  .vision,
+  .mission,
+  .aboutUs {
+    margin: 3.5%;
+    margin-top: 0%;
+    min-height: 20%;
+    width: 33.3%;
+    background-color: #083d8d;
+    color: #fff;
+    border-radius: 3px;
+  }
+  
+  .mission h1,
+  .vision h1,
+  .aboutUs h1 {
+    margin: 2% 7%;
+    padding-top: 3%;
+    font-size: 30px;
+  }
+  .mission p,
+  .vision p,
+  .aboutUs p {
+    padding: 3%;
+    margin-left: 3.5%;
+    margin-bottom: 2%;
+  }
+  /*---------------------------------------------*/
+  /* Search bar styles */
+  #searchbar {
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  #searchbar button {
+    padding: 10px;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 15px;
+    font-weight: 300;
+    background-color: #083d8d;
+    color: white;
+  }
+  #searchbar input {
+    border: 1px solid #6c6d6eb9;
+    border-width: 1px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 35px;
+    width: 700px;
+    outline: none;
+  }
+  :focus::placeholder {
+    color: transparent;
+  }
+  /*input and buttons*/
+  button[type="submit"] {
+    width: 4%;
+    border-radius: 8px;
+    font-family: "Times New Roman", Times, serif;
+  }
+  button[type="submit"]:hover {
+    cursor: pointer;
+  }
+  input[type="submit"] {
+    width: 4%;
+    border-radius: 8px;
+    font-family: "Times New Roman", Times, serif;
+  }
+  input[type="submit"]:hover {
+    cursor: pointer;
+  }
+  button[type="reset"] {
+    width: 4%;
+    border-radius: 8px;
+    font-family: "Times New Roman", Times, serif;
+  }
+  button[type="reset"]:hover {
+    cursor: pointer;
+  }
+  input[type="reset"]:hover {
+    cursor: pointer;
+  }
+  input[type="search"] {
+    font-size: 20px;
+  }
+  /* table styles */
+  table {
+    border-collapse: collapse;
+    border: 2px solid #7172749d;
+    width: 95%;
+    margin: 20px;
+  }
+  
+  table tr th {
+    padding: 15px;
+    color: #ffffff;
+    border-bottom: 2px solid #ddd;
+    background-color: #083d8d;
+    text-align: center;
+  }
+  
+  table tr td {
+    padding: 15px;
+    padding-bottom: 8px;
+    text-align: center;
+    color: #3c4a5a;
+  }
+  table tr td img {
+    width: 30px;
+  }
+  table tr td select {
+    width: 35%;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 40px;
+    border-color: #7172749d;
+  }
+  /* ---------------------------------- */
+  
+  fieldset {
+    border-color: #083d8d;
+    margin-left: 12px;
+    margin-right: 8px;
+  }
+  legend {
+    color: #083d8d;
+    font-size: 29px;
+  }
+  /*Assign Department*/
+  .hide {
+    display: none;
+  }
+  #searchDepartment {
+    margin-top: 20px;
+    width: auto;
+  }
+  
+  #searchBarDep {
+    padding-left: 12px;
+    padding-bottom: 10px;
+  }
+  ::placeholder {
+    font-size: 16px;
+  }
+  #addStudentField {
+    width: auto;
+    display: block;
+    font-size: 29px;
+    position: absolute;
+  }
+  #searchByID {
+    border-radius: 5px;
+  }
+  #submitReset,#submitDepChange,#submitStudent {
+    border-radius: 8px;
+    background-color: #083d8d;
+    color: #fff;
+    padding: 5px;
+    border: 20px;
+    font-size: 16px;
+    width: 4%;
+    font-family: "Times New Roman", Times, serif;
+  }
+  #submitDepChange {
+    padding: 8px;
+  }
+  #submitButton {
+    padding: 6px;
+    /* margin-left:50%; */
+    text-align: center;
+  }
+  #departmentTable select{
+      width: 21.5%;
+      height: 40px;
+  }
+  /* ---------------------------------- */
+  
+  #formContainer {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 30px;
+  }
+  #inputGroup {
+    display: flex;
+    text-align: left;
+    justify-content: center;
+  }
+  #inputGroup div {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    margin: 20px 5px;
+  }
+  #formContainer input,
+  #formContainer select {
+    font-size: 20px;
+    border-radius: 8px;
+    height: 30px;
+    outline: 0;
+  }
+  
+  #formContainer label {
+    font-size: 26px;
+    font-weight: bold;
+    color: #083d8d;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  #addStudentField {
+    margin-top: 20px;
+    margin-left: 23rem;
+    margin-right: 23rem;
+    padding-left: 10px;
+    background-color: white;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+  }
+  #addStudentField input {
+    padding: 4px;
+  }
+  #addStudentField select {
+    height: 41px;
+    border: 2px solid #000;
+    outline: 0;
+  }
+  #addStdLegend {
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #subButton{
+    display: inline;
+    justify-content: space-between;
+  }
+  #submitStudent{
+    outline: none;
+    border: 1px solid;
+    font-family: "Times New Roman", Times, serif;
+    width: 30%;
+    border-radius: 8px;
+    padding: 5px;
+    border: 20px;
+    font-size: 20px;
+  }
+  
+  #searchB {
+    border-radius: 8px;
+  }
+  #statusField {
+    border-color: #083d8d;
+    margin-left: 12px;
+    margin-right: 8px;
+  }
+  #statusField input {
+    width: 8%;
+    font-size: 18px;
+    margin-top: 1%;
+    border-radius: 8px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    height: 40px;
+    background-color: #083d8d;
+    border: 1px solid #083d8d;
+    color: #fff;
+  }
+  #statusField input:hover {
+    cursor: pointer;
+  }
+  #statusField > input {
+    margin-left: 1.1%;
+  }
+  #statusField span {
+    margin-left: 70.3%;
+  }
+  #statusField legend {
+    font-size: 135%;
+    margin-left: 1%;
+  }
+  
+  #DeleteButton {
+      color: white;
+      border: 1px solid #f44336;
+      outline: none;
+      background-color: #f44336;
+      font-family: "Times New Roman", Times, serif;
+      width: 30%;
+      border-radius: 8px;
+      padding: 5px;
+      border: 20px;
+      font-size: 20px;
+
+  }
+  #DeleteButton:hover {
+    background-color: rgb(197, 0, 0);
+    cursor: pointer;
+  }
+  #submitDepChange {
+    width: 9%;
+  }
+  /*LOG IN*/
+  .main {
+      background: url("../images/uni.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #loginBox {
+      background-color: #fff;
+      margin-right: 70%;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      height: 100vh;
+      text-align: center;
+    }
+    .input {
+      margin-top: 3rem;
+    }
+    .input label {
+      font-weight: bold;
+    }
+    .login h2 {
+      font-size: 50px;
+      margin-top: 13rem;
+    }
+    #loginButton{
+      border: none;
+      outline: none;
+      font-size: 20px;
+      border-radius: 30px;
+      padding: 9px 17px;
+      background-color: #083d8d;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      margin-top: 50px;
+      width: 25%;
+      height: 40px;
+    }
+    .login input {
+      text-align: left;
+      border: 1px #083d8d solid;
+      outline: none;
+      border-radius: 8px;
+      padding: 6px;
+      padding-right: 8px;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+    }
+    .login p {
+      display: none;
+      font-size: 15px;
+      color: red;
+      margin-top: 20px;
+    }
+    /* ---------------------------------- */
+  
+  /*Delete Student*/
+  
+  fieldset body {
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  fieldset * {
+      box-sizing: border-box;
+  }
+  
+  fieldset button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+  }
+  
+      fieldset button:hover {
+          opacity: 1;
+      }
+  
+  
+  fieldset .cancelbtn, .deletebtn {
+      float: left;
+      width: 50%;
+  }
+  
+  
+  fieldset .cancelbtn {
+      background-color: #ccc;
+      color: black;
+  }
+  
+  
+  fieldset .deletebtn {
+      background-color: #f44336;
+  }
+  
+ 
+  fieldset .container {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 16px;
+      text-align: center;
+  }
+  
+  fieldset .container h1 {
+      font-size: 50px;
+      margin: 50px;
+  }
+  
+  fieldset .container p {
+      font-size: 30px;
+      margin-bottom: 40px;
+  }
+  
+ 
+  fieldset .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: #083d8d;
+      padding-top: 50px;
+  }
+  
+  
+  fieldset .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; 
+      border: 1px solid #888;
+      width: 80%; 
+  }
+  
+  fieldset hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+  }
+  
+  fieldset .close {
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #f1f1f1;
+  }
+  
+      fieldset .close:hover,
+      fieldset .close:focus {
+          color: #f44336;
+          cursor: pointer;
+      }
+  
+  fieldset .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+  
