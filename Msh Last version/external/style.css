@@ -227,86 +227,6 @@ table tr td select{
     color : red;
     margin-top : 20px;
 }
-
-.edit-form {
-	margin-top: 10rem;
-    margin-left: 40rem;
-    margin-right:40rem;
-	display: flex;
-	flex-direction: row;
-    justify-content: space-around ;
-	align-items: start;
-}
-.edit-form label{
-	display: inline-block;
-	margin: 0 auto;
-	text-align: center;
-	width: 100%;
-	max-width: 300px;
-	margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 25px;
-    color: #083d8d;
-    font-family: 'Times New Roman', Times, serif;
-}
-.edit-form input{
-	display: inline-block;
-	 margin: 0 auto;
-	text-align: center;
-	width: 100%;
-	max-width: 300px;
-	margin-bottom: 30px;
-    font-size: 20px;
-    border-radius: 8px;
-    border: 3px solid rgb(207, 206, 206);
-}
-.edit-form input:focus{
-    border: 3px solid black;
-}
-.edit-form input:disabled{
-    background-color: rgb(182, 181, 181);
-}
-.edit-form select{
-	display: inline-block;
-	width: auto;
-    margin-top:12px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    border-radius:8px;
-    color:black;
-    background-color:white;
-    border: black 1px solid;
-}
-#formSubmit {
-	background-color: #083d8d;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-    margin-top: 40px;
-    margin-left:45%;
-    margin-right: 50%;
-    width: 200px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 20px;
-    border-radius:20px;
-    text-align: center;
-}
-.student-status , .student-gender,.student-level{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-    margin-right: 50%;
-    width: 100%;
-}
-.form-column{
-    display: flex;
-    flex-direction: column;
-}
-.edit-field{
-    border-color: #083d8d;
-    width: 100px;
-}
 /* ---------------------------------- */
 fieldset{
     border-color: #083d8d;
@@ -368,6 +288,7 @@ input[type="search"]{
     text-align: center;
 }
 /* ---------------------------------- */
+
 #formContainer{
     margin-top: 10px;
     margin-left: auto;
@@ -393,6 +314,7 @@ input[type="search"]{
     border-radius: 8px;
     height: 30px;
     outline: 0;
+    
 }
 
 #formContainer label{
@@ -402,6 +324,7 @@ input[type="search"]{
     text-align: left;
     margin-bottom: 5px ;
 }
+
 #addStudentField{
     margin-top: 20px;
     margin-left: 23rem;
