@@ -144,28 +144,37 @@ footer {
 /* table styles */
 table {
     border-collapse: collapse;
-    border: 1px solid #777a7c9d ;
+    border: 2px solid #7172749d ;
     width: 95%;
     margin: 20px;
+    
 }
 
-    table tr th {
-        padding: 15px;
-        color: #083d8d;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
-    }
+table tr th {
+    padding: 15px;
+    color: #ffffff;
+    border-bottom: 2px solid #ddd;
+    background-color: #083d8d;
+    text-align: center;
+}
 
-    table tr td {
-        padding: 15px;
-        padding-bottom: 8px;
-        text-align: center;
-        color: #3c4a5a;
-    }
-
-        table tr td img{
-          width: 30px;
-        }
+table tr td {
+    padding: 15px;
+    padding-bottom: 8px;
+    text-align: center;
+    color: #3c4a5a;
+}
+table tr td img{
+    width: 30px;
+}
+table tr td select{
+    width: 35%;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 40px;
+    border-color: #7172749d;
+}
 /* ---------------------------------- */
 .main{
     background-color:#083d8d;
@@ -431,4 +440,33 @@ button[type="submit"]{
 }
 #searchB{
     border-radius:12px;
+}
+#status-field{
+    border-color: #083d8d;
+    margin-left: 12px;
+    margin-right: 8px;
+}
+#status-field input{
+    width: 8%;
+    font-size: 18px;
+    margin-top: 1%;
+    border-radius: 8px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 40px;
+    background-color: #083d8d;
+    border: 1px solid #083d8d;
+    color: #fff;
+}
+#status-field input:hover{
+    cursor: pointer;
+}
+#status-field > input{
+    margin-left: 1.1%;
+}
+#status-field span{
+    margin-left: 70.3%;
+}
+#status-field legend{
+    font-size: 135%;
+    margin-left: 1%;
 }
