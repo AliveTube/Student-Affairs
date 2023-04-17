@@ -50,7 +50,7 @@ function getData() {
           let anchor = document.createElement("a");
           anchor.setAttribute("href","Edit.html?id=" +key+ "");
           let img = document.createElement("img");
-          img.setAttribute("src","Msh Last version\images\pen3.png");
+          img.setAttribute("src","../images/edit.jpg");
           anchor.appendChild(img);
           tbody.lastChild.lastChild.appendChild(anchor);
       }
@@ -79,7 +79,7 @@ function filterdata(){
         let anchor = document.createElement("a");
         anchor.setAttribute("href","Edit.html?id=" +key+ "");
         let img = document.createElement("img");
-        img.setAttribute("src","pen3.png");
+        img.setAttribute("src","../images/edit.jpg");
         anchor.appendChild(img);
         tbody.lastChild.lastChild.appendChild(anchor);
     }
@@ -306,7 +306,11 @@ function departmentTable(event){
         sel.appendChild(op5);
         sel.appendChild(op6);
         sel.value = data[3];
-        sel.setAttribute("data-stuid",data[1]);
+        sel.setAttribute("data-stuid", data[1]);
+          if (data[2] < 3)
+              sel.disabled = true;
+          else
+              sel.disabled = false;
         tbody.lastChild.lastChild.appendChild(sel);
       }
     }
