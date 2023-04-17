@@ -361,8 +361,9 @@ button[type="submit"]{
     border-radius: 8px;
     font-family: 'Times New Roman', Times, serif;
 }
+
 #searchB{
-    border-radius:12px;
+    border-radius:8px;
 }
 #status-field{
     border-color: #083d8d;
@@ -392,4 +393,13 @@ button[type="submit"]{
 #status-field legend{
     font-size: 135%;
     margin-left: 1%;
+}
+#DeleteButton{
+    background-color: #FF4742;
+    font-family: 'Times New Roman', Times, serif;
+    width: 30%;
+}
+#DeleteButton:hover{
+    background-color: rgb(197, 0, 0);
+    cursor: pointer;
 }
