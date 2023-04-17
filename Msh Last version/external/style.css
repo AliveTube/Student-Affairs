@@ -140,6 +140,7 @@ footer {
         color: transparent;
     }
 
+
 /* table styles */
 table {
     border-collapse: collapse;
@@ -297,8 +298,6 @@ table {
     border-color: #083d8d;
     width: 100px;
 }
-
-
 /* ---------------------------------- */
 fieldset{
     border-color: #083d8d;
@@ -342,11 +341,14 @@ input[type="search"]{
     border-radius: 5px;
 }
 #submitReset , #submitDepChange, #submitStudent{
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: #083d8d;
     color: #fff;
     padding: 5px;
-    font-size: 18px;
+    border: 20px;
+    font-size: 16px;
+    width: 4%;
+    font-family: 'Times New Roman', Times, serif;
 }
 #submitDepChange{
     padding:8px;
@@ -379,7 +381,7 @@ input[type="search"]{
 }
 #formContainer input , #formContainer select{
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     height: 30px;
     outline: 0;
 }
@@ -418,6 +420,15 @@ input[type="search"]{
     margin-top: 12px;
 }
 #submitStudent{
-    width: 25%;
+    width: 30%;
     font-family: 'Times New Roman', Times, serif;
+
+}
+button[type="submit"]{
+    width: 4%;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+}
+#searchB{
+    border-radius:12px;
 }
