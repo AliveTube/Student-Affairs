@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Students</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../external/style.css">
+    <script src="../external/script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="Homepage.html">
+                <img src="../images/logo.png" alt="My Logo">
+            </a>
+        </div>
+        <ul>
+            <li><a href="Homepage.html" class="nav-link">Home</a></li>
+            <li><a href="StudentsData.html" class="nav-link">Students Data</a></li>
+            <li><a href="AddNewStudent.html" class="nav-link">Add New Student</a></li>
+            <li><a href="Department.html" class="nav-link">Assign Department</a></li>
+            <li><a href="Status.html" class="nav-link">Students Status</a></li>
+            <li><a href="Main_Page.html" class="nav-link">Log Out</a></li>
+        </ul>
+    </nav>
+    <script>keepHighlighted();</script>
+
+    <fieldset id="addStudentField">
+        <legend id="addStdLegend">
+            Edit Student
+        </legend>
+        <form id="formContainer" method="POST" onsubmit="return false">
+            <div id="inputGroup">
+                <div id="nameDiv">
+                    <label for="name-field">Name</label>
+                    <input type="text" id="name-field" name="name-field" required placeholder="Enter student name">
+                </div>
+                <div id="idDiv">
+                    <label for="id-field">ID</label>
+                    <input type="text" id="id-field" name="id" required placeholder="Enter student ID">
+                </div>
+            </div>
+
+            <div id="inputGroup">
+                <div id="levelDiv">
+                    <label for="level-field">Level</label>
+                    <select name="stdLevel" id="level-field" onchange="return depart()">
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                    </select>
+                </div>
+                <div id="departmentDiv">
+                    <label for="department-field">Department</label>
+                    <select name="department" id="department-field" disabled default="General" value="General">
+                        <option value="General">General</option>
+                        <option value="CS">CS</option>
+                        <option value="IS">IS</option>
+                        <option value="AI">AI</option>
+                        <option value="IT">IT</option>
+                        <option value="DS">DS</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="inputGroup">
+                <div id="GPADiv">
+                    <label for="gpa-field">GPA</label>
+                    <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter student GPA">
+                </div>
+                <div id="statusDiv">
+                    <label for="status-field">Status</label>
+                    <select name="Status" id="status-field" value="Active">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="inputGroup">
+                <div id="emailDiv">
+                    <label for="email-field">Email</label>
+                    <input type="email" id="email-field" name="email" required placeholder="Enter student email">
+                </div>
+                <div id="phoneDiv">
+                    <label for="phone-field">Phone Number</label>
+                    <input type="text" id="phone-field" name="phone" required placeholder="Enter student phone">
+                </div>
+            </div>
+
+            <div id="inputGroup">
+                <div id="dobDiv">
+                    <label for="studentBD">Date of birth</label>
+                    <input type="date" id="dob-field" name="date" required>
+                </div>
+                <div id="genderDiv">
+                    <label for="studentGender">Gender</label>
+                    <select name="Gender" id="gender-field" value="Male">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <class id="both">
+                <div id="subButton">
+                    <input type="submit" id="submitStudent" value="Save Changes" onclick="return validate()">
+                </div>
+                <div id="del">
+                    <button id="DeleteButton" onclick="document.getElementById('id01').style.display='block'">Delete</button>
+                </div>
+            </class>
+
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                <form class="modal-content">
+                    <div class="container">
+                        <h1>Delete Student</h1>
+                        <p>Are you sure you want to delete this student?</p>
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="button" onclick="handleDelete()" class="deletebtn">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </fieldset>
+
+    <script>
+        search();
+    </script>
+</body>
+</html>
