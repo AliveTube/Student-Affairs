@@ -68,9 +68,8 @@ function filterdata(){
       flag = true;
     }
   }
-  if(name.trim() != ""){
-    let tbody = document.getElementById("data");
-  if(flag){
+  let tbody = document.getElementById("data");
+  if(flag && name.trim() != ""){
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
@@ -98,7 +97,7 @@ function filterdata(){
   else{
     getData();
   }
-  }
+
 
 }
 function validateID(){
