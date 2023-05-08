@@ -95,6 +95,7 @@ function filterdata(){
     }
   }
   else{
+    console.alert("Enter Valid Name")
     getData();
   }
 
