@@ -74,27 +74,29 @@ function filterdata(){
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
-  }
-  
-  for (let key in localStorage) {
-    if(regex.test(key)==false)continue;
-    let data = JSON.parse(localStorage.getItem(key));
-    if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[5]=="Active") {
-      tbody.appendChild(document.createElement("tr"));
-      for (let values in data) {
+    for (let key in localStorage) {
+      if(regex.test(key)==false)continue;
+      let data = JSON.parse(localStorage.getItem(key));
+      if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[5]=="Active") {
+        tbody.appendChild(document.createElement("tr"));
+        for (let values in data) {
+          tbody.lastChild.appendChild(document.createElement("td"));
+          tbody.lastChild.lastChild.appendChild(
+            document.createTextNode(data[values])
+          );
+        }
         tbody.lastChild.appendChild(document.createElement("td"));
-        tbody.lastChild.lastChild.appendChild(
-          document.createTextNode(data[values])
-        );
+        let anchor = document.createElement("a");
+        anchor.setAttribute("href","Edit.html?id=" +key+ "");
+        let img = document.createElement("img");
+        img.setAttribute("src","../images/edit.jpg");
+        anchor.appendChild(img);
+        tbody.lastChild.lastChild.appendChild(anchor);
       }
-      tbody.lastChild.appendChild(document.createElement("td"));
-      let anchor = document.createElement("a");
-      anchor.setAttribute("href","Edit.html?id=" +key+ "");
-      let img = document.createElement("img");
-      img.setAttribute("src","../images/edit.jpg");
-      anchor.appendChild(img);
-      tbody.lastChild.lastChild.appendChild(anchor);
     }
+  }
+  else{
+    getData();
   }
   }
 
