@@ -76,17 +76,14 @@ function filterdata(){
           tbody.lastChild.lastChild.appendChild(
             document.createTextNode(data[values])
           );
-          flag = true;
         }
-        if(flag){
-          tbody.lastChild.appendChild(document.createElement("td"));
-          let anchor = document.createElement("a");
-          anchor.setAttribute("href","Edit.html?id=" +key+ "");
-          let img = document.createElement("img");
-          img.setAttribute("src","../images/edit.jpg");
-          anchor.appendChild(img);
-          tbody.lastChild.lastChild.appendChild(anchor);
-        }
+        tbody.lastChild.appendChild(document.createElement("td"));
+        let anchor = document.createElement("a");
+        anchor.setAttribute("href","Edit.html?id=" +key+ "");
+        let img = document.createElement("img");
+        img.setAttribute("src","../images/edit.jpg");
+        anchor.appendChild(img);
+        tbody.lastChild.lastChild.appendChild(anchor);
       }
     }
   }
