@@ -65,6 +65,7 @@ function filterdata(){
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
+    flag = false;
     for (let key in localStorage) {
       if(regex.test(key)==false)continue;
       let data = JSON.parse(localStorage.getItem(key));
@@ -75,7 +76,9 @@ function filterdata(){
           tbody.lastChild.lastChild.appendChild(
             document.createTextNode(data[values])
           );
+          flag = true;
         }
+        if(flag){
           tbody.lastChild.appendChild(document.createElement("td"));
           let anchor = document.createElement("a");
           anchor.setAttribute("href","Edit.html?id=" +key+ "");
@@ -83,6 +86,7 @@ function filterdata(){
           img.setAttribute("src","../images/edit.jpg");
           anchor.appendChild(img);
           tbody.lastChild.lastChild.appendChild(anchor);
+        }
       }
     }
   }
