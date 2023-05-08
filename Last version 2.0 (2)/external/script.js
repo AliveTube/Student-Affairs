@@ -60,7 +60,7 @@ function getData() {
 function filterdata(){
   const regex = /^[0-9]+$/;
   var name = document.getElementById("searchB").value;
-  if(name.value.trim() != ""){
+  if(name.trim() != ""){
     let tbody = document.getElementById("data");
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
