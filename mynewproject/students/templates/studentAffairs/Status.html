@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Students Status</title>
+    </head>
+    <body>
+      <br><br><br><br><br>
+      <fieldset id="statusField">
+        <legend>Student Status</legend>
+          <input type="submit" value="All Students" id="status-all">
+          <span>
+            <input type="submit" value="Active Students" id="status-active">
+            <input type="submit" value="In-Active Students" id="status-inactive">
+          </span>
+        <div>
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>ID</th>
+              <th>Year</th>
+              <th>Department</th>
+              <th>GPA</th>
+              <th>Status</th>
+            </thead>
+            <tbody id="status-tbody">
+              {% for student in students %}
+                <tr>
+                  <td>{{ student.Name }}</td>
+                  <td>{{ student.ID }}</td>
+                  <td>{{ student.Level }}</td>
+                  <td>{{ student.Department }}</td>
+                  <td>{{ student.GPA }}</td>
+                  <td>{{ student.Status }}</td>
+                  <td>{{ student.Email }}</td>
+                  <td>{{ student.Phone }}</td>
+                  <td>{{ student.BirthDate }}</td>
+                  <td>{{ student.Gender }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </fieldset>
+      <script src="{% static 'js/script.js' %}"></script>
+    </body>
+  </html>
+{% endblock content %}

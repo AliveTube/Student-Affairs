@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Log In</title>
+        <meta charset="UTF-8">
+        <link rel= "stylesheet" href = "{% static 'css/style.css' %}">
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body class = "main">
+        <form method="POST" id = "loginBox">
+            {% csrf_token %}
+            <div class = "login">
+                <h2>Login</h2>
+                <div class="input">
+                    <label>Username: </label>
+                    <input type="text" placeholder="Enter Username" id="username" name = "username" required>
+                    <br><br>
+                    <label>Password: </label>
+                    <input type="password" placeholder="Enter Password" id="password" name = "password" required>
+                </div>
+                <p id="wrong">Invalid username or password! Please Try Again.</p>
+                <button type="submit" id="loginButton">Login</button>
+            </div>
+        </form>
+    </body>
+</html>
+{% endblock content %}

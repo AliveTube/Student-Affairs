@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add New Student</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <fieldset id = "addStudentField">
+            <legend id ="addStdLegend">
+                Add new student
+            </legend>
+            <form id = "formContainer" method = "POST" onsubmit="return validateSubmit();" >
+                {% csrf_token %}
+                <div id = "inputGroup">
+                    <div id = "nameDiv">
+                        <label for="name-field">Name</label>
+                        <input type="text" id="name-field" name = "name-field" required placeholder="Enter student name">
+                    </div>
+                    <div id = "idDiv">
+                        <label for="id-field">ID</label>
+                        <input type="text" id="id-field" name = "id" required placeholder="Enter student ID">
+                    </div>
+                </div>
+
+                <div id = "inputGroup">
+                    <div id = "levelDiv">
+                        <label for="level-field">Level</label>
+                        <select name="stdLevel" id="level-field" onchange="return depart();" value = 1>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                        </select>
+                    </div>
+                    <div id = "departmentDiv">
+                        <label for="department-field">Department</label>
+                        <select name="department" id="department-field" disabled default = "General" value = "General">
+                            <option value="General">General</option>
+                            <option value="CS">CS</option>
+                            <option value="IS">IS</option>
+                            <option value="AI">AI</option>
+                            <option value="IT">IT</option>
+                            <option value="DS">DS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id = "inputGroup">
+                    <div id = "GPADiv">
+                        <label for="gpa-field">GPA</label>
+                        <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter student GPA">
+                    </div>
+                    <div id = "statusDiv">
+                        <label for="status-field">Status</label>
+                        <select name="Status" id="status-field" value = "Active">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id = "inputGroup">
+                    <div id = "emailDiv">
+                        <label for="email-field">Email</label>
+                        <input type="email" id="email-field" name = "email" required placeholder="Enter student email">
+                    </div>
+                    <div id = "phoneDiv">
+                        <label for="phone-field">Phone Number</label>
+                        <input type="text" id="phone-field" name = "phone" required placeholder="Enter student phone">
+                    </div>
+                </div>
+
+                <div id = "inputGroup">
+                    <div id = "dobDiv">
+                        <label for="studentBD">Date of birth</label>
+                        <input type="date" id="dob-field" name = "date" required>
+                    </div>
+                    <div id = "genderDiv">
+                        <label for="studentGender">Gender</label>
+                        <select name="Gender" id="gender-field" value = "Male">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div id = "subButtonAdd">
+                    <input type="submit" id = "submitStudent" value="Add Student">
+                </div>
+            </form>
+        </fieldset>
+    </body>
+</html>
+{% endblock content %}

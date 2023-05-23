@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Assign Department</title>
+    </head>
+    <body>
+        <br>
+        <form id = "searchDepartment" method = "POST">
+            {% csrf_token %}
+            <fieldset id = "searchBarDep">
+                <legend>Search with ID</legend>
+                <input type = "search" name = "stuID" id = "searchByID" placeholder="eg. 20210011" required>
+                <input type = "submit" id = "submitReset" value="Submit"></input>
+                <input type = "reset" id = "submitReset" ></input>
+            </fieldset>
+        </form>
+        <br>
+        <form id = "departmentForm" style = "display: none;" {% if student %} style = "display: block;" {% endif %}>
+            <fieldset id = "searchBarDep">
+                <legend> Assign Department</legend>
+                <br>
+                <table id = "departmentTable">
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Level</th>
+                    <th>Department</th>
+                    <tbody id = "dptBody">
+                        <td>{{ student.Name }}</td>
+                        <td>{{ student.ID }}</td>
+                        <td>{{ student.Level }}</td>
+                        <td>{{ student.Department }}</td>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
+{% endblock content %}

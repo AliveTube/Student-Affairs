@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Students Data</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <br><br>
+            <div id="searchbar">
+            <form method="POST" onsubmit="return false">
+                <input type="text" id="searchB" placeholder=" Search With Name...">
+                <button type="submit" onclick=" filterdata()">Search</button>
+                <button type="reset" onclick=" getData()">Reset</button>
+            </form>
+        </div>
+        <br>
+        <fieldset class="Studentdata-field">
+            <legend>Students Data</legend>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Level</th>
+                    <th>Department</th>
+                    <th>GPA</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Gender</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.Name }}</td>
+                            <td>{{ student.ID }}</td>
+                            <td>{{ student.Level }}</td>
+                            <td>{{ student.Department }}</td>
+                            <td>{{ student.GPA }}</td>
+                            <td>{{ student.Status }}</td>
+                            <td>{{ student.Email }}</td>
+                            <td>{{ student.Phone }}</td>
+                            <td>{{ student.BirthDate }}</td>
+                            <td>{{ student.Gender }}</td>
+                            <td><a href = {%url 'editPage'%}><img src ={% static 'images/edit.jpg' %}></img></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </fieldset>
+    </body>
+</html>
+{% endblock content %}
