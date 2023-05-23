@@ -8,7 +8,9 @@ urlpatterns = [
     path('Edit/', views.editPage, name = 'editPage'),
     path('AssignDepartment/', views.departmentPage, name = 'departmentPage'),
     path('Status/', views.statusPage, name = 'statusPage'),
-    path('StudentsData/', views.studentsDataPage, name = 'studentsDataPage'),
+    path('StudentsData/',views.ShowData, name='ShowData'),
+    path('StudentsData/Stud/',views.ShowPost, name='ShowPost'),
+    path('StudentsData/res/',views.reset, name='reset'),
     path('MainMenu/', views.mainPage, name = 'mainPage'),
     path('AddNewStudent/', views.addStudentPage , name='addStudentPage'),
 ]

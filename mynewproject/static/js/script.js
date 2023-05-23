@@ -13,7 +13,7 @@ function keepHighlighted() {
   });
 }
 
-/* Login JS */
+// /* Login JS */
 localStorage.setItem("Ayaali22","Aya");
 function validateLogIn(){
   var username = document.getElementById("username").value;
@@ -27,79 +27,6 @@ function validateLogIn(){
           window.location.href = "studentAffairs/Homepage.html";
       }
   }
-}
-
-function getData() {
-  const regex = /^[0-9]+$/;
-  let tbody = document.getElementById("data");
-  while (tbody.firstChild) {
-    tbody.removeChild(tbody.firstChild);
-  }
-  for (let key in localStorage) {
-      if(regex.test(key)==false)continue;
-      let data = JSON.parse(localStorage.getItem(key));
-      if (data != null) {
-          tbody.appendChild(document.createElement("tr"));
-          for (let values in data) {
-          tbody.lastChild.appendChild(document.createElement("td"));
-          tbody.lastChild.lastChild.appendChild(
-              document.createTextNode(data[values])
-          );
-          }
-          tbody.lastChild.appendChild(document.createElement("td"));
-          let anchor = document.createElement("a");
-          anchor.setAttribute("href","Edit.html?id=" +key+ "");
-          let img = document.createElement("img");
-          img.setAttribute("src","../images/edit.jpg");
-          anchor.appendChild(img);
-          tbody.lastChild.lastChild.appendChild(anchor);
-      }
-    }
-}
-
-function filterdata(){
-  const regex = /^[0-9]+$/;
-  var name = document.getElementById("searchB").value;
-  flag = false;
-  for (let key in localStorage) {
-    if(regex.test(key)==false)continue;
-    let data = JSON.parse(localStorage.getItem(key));
-    if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[5]=="Active") {
-      flag = true;
-    }
-  }
-  let tbody = document.getElementById("data");
-  if(flag && name.trim() != ""){
-    while (tbody.firstChild) {
-      tbody.removeChild(tbody.firstChild);
-    }
-    for (let key in localStorage) {
-      if(regex.test(key)==false)continue;
-      let data = JSON.parse(localStorage.getItem(key));
-      if (data != null && data[0].toLowerCase()==name.toLowerCase() && data[5]=="Active") {
-        tbody.appendChild(document.createElement("tr"));
-        for (let values in data) {
-          tbody.lastChild.appendChild(document.createElement("td"));
-          tbody.lastChild.lastChild.appendChild(
-            document.createTextNode(data[values])
-          );
-        }
-        tbody.lastChild.appendChild(document.createElement("td"));
-        let anchor = document.createElement("a");
-        anchor.setAttribute("href","Edit.html?id=" +key+ "");
-        let img = document.createElement("img");
-        img.setAttribute("src","../images/edit.jpg");
-        anchor.appendChild(img);
-        tbody.lastChild.lastChild.appendChild(anchor);
-      }
-    }
-  }
-  else{
-    console.alert("Enter Valid Name")
-    getData();
-  }
-
-
 }
 function validateID(){
   var id=document.getElementById("id-field").value;
@@ -357,3 +284,92 @@ function handleDelete() {
     document.getElementById('id01').style.display = 'none';
     return DeleteUser();
 }
+/* Student Data Page */
+let submitButton = document.querySelector("#SDatasubmit")
+submitButton.addEventListener("click",(event)=>{
+    event.preventDefault()
+    let req = new XMLHttpRequest()
+    req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(this.responseText);    
+            fillTable(data)  
+        }
+    };
+    req.open("POST", "Stud/");
+    let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+    req.setRequestHeader("X-CSRFToken", csrfToken);
+    let searchval = document.querySelector("#searchB").value
+    req.send(searchval);
+})
+function fillTable(data) {
+    let tbody = document.querySelector("#SDatadata");
+    tbody.innerHTML = ""; 
+    for (let i = 0; i < data.length; i++) {
+        let item = data[i];
+        let row = document.createElement("tr");
+        let nameCell = document.createElement("td");
+        nameCell.textContent = item.fields.Name;
+        row.appendChild(nameCell);
+        let idCell = document.createElement("td");
+        idCell.textContent = item.pk;
+        row.appendChild(idCell);
+        let levelCell = document.createElement("td");
+        levelCell.textContent = item.fields.Level;
+        row.appendChild(levelCell);
+        let departmentCell = document.createElement("td");
+        departmentCell.textContent = item.fields.Department;
+        row.appendChild(departmentCell);
+        let gpaCell = document.createElement("td");
+        gpaCell.textContent = item.fields.GPA;
+        row.appendChild(gpaCell);
+        let statusCell = document.createElement("td");
+        statusCell.textContent = item.fields.Status;
+        row.appendChild(statusCell);
+        let emailCell = document.createElement("td");
+        emailCell.textContent = item.fields.Email;
+        row.appendChild(emailCell);
+        let phoneCell = document.createElement("td");
+        phoneCell.textContent = item.fields.Phone;
+        row.appendChild(phoneCell);
+        let dateCell = document.createElement("td");
+        dateCell.textContent = item.fields.BirthDate ;
+        row.appendChild(dateCell);
+        let genderCell = document.createElement("td");
+        genderCell.textContent = item.fields.Gender;
+        row.appendChild(genderCell);
+        let edit = document.createElement("td");
+        let anchor = document.createElement("a");
+        anchor.setAttribute("href", "#");
+        anchor.setAttribute("data-id", item.pk);
+        anchor.addEventListener("click", handleEditClick);
+        let img = document.createElement("img");
+        img.setAttribute("src","/static/images/edit.jpg");
+        anchor.appendChild(img);
+        edit.appendChild(anchor);
+        row.appendChild(edit);
+        tbody.appendChild(row);       
+      
+    }
+}
+function handleEditClick(event) {
+  event.preventDefault();
+  let itemId = this.getAttribute("data-id");
+  window.location.href = "/Edit?id=" + itemId;
+}
+
+let resetButton = document.querySelector("#SDatareset")
+resetButton.addEventListener("click",(event)=>{
+    event.preventDefault()
+    let req = new XMLHttpRequest()
+    req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(this.responseText);    
+            fillTable(data)  
+        }
+    };
+    req.open("POST", "res/");
+    let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+    req.setRequestHeader("X-CSRFToken", csrfToken);
+    req.send();
+})
+/*------------------------------------------*/

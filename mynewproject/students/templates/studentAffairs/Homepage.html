@@ -14,20 +14,20 @@
             <div class = "blackCover">
                 <nav id="homeNav">
                     <div class="logo">
-                        <a href= {% url 'homePage' %}>
+                        <a href= "{% url 'homePage' %}">
                             <img src="{% static 'images/logo.png' %}" alt="My Logo">
                         </a>
                     </div>
                     <ul>
-                        <li><a href= {% url 'homePage' %} class="nav-link">Home</a></li>
-                        <li><a href= {% url 'studentsDataPage' %} class="nav-link">Students Data</a></li>
-                        <li><a href= {% url 'addStudentPage' %} class="nav-link">Add New Student</a></li>
-                        <li><a href= {% url 'departmentPage' %} class="nav-link">Assign Department</a></li>
-                        <li><a href= {% url 'statusPage' %} class="nav-link">Students Status</a></li>
-                        <li><a href= {% url 'mainPage' %} class="nav-link">Log Out</a></li>
+                        <li><a href= "{% url 'homePage' %}" class="nav-link">Home</a></li>
+                        <li><a href= "{% url 'ShowData' %}" class="nav-link">Students Data</a></li>
+                        <li><a href= "{% url 'addStudentPage' %}" class="nav-link">Add New Student</a></li>
+                        <li><a href= "{% url 'departmentPage' %}" class="nav-link">Assign Department</a></li>
+                        <li><a href= "{% url 'statusPage' %}" class="nav-link">Students Status</a></li>
+                        <li><a href= "{% url 'mainPage' %}" class="nav-link">Log Out</a></li>
                     </ul>
                 </nav>
-                <script>keepHighlighted();</script>
+                <!-- <script>keepHighlighted();</script> -->
                 <div class="welcome">
                     <h1>FCAI Student Affairs</h1>
                     <p>We're here to support and guide our students through their academic journey.</p>
