@@ -298,7 +298,7 @@ function fillTable(data) {
         anchor.setAttribute("data-id", item.pk);
         anchor.addEventListener("click", handleEditClick);
         let img = document.createElement("img");
-        img.setAttribute("src","/static/images/edit.jpg");
+        img.setAttribute("src","/students/static/images/edit.jpg");
         anchor.appendChild(img);
         edit.appendChild(anchor);
         row.appendChild(edit);
