@@ -14,6 +14,10 @@
     <legend id="addStdLegend">
         Add new student
     </legend>
+    {% if error %}
+    <br>
+    <p class="error-message">{{ error }}</p>
+    {% endif %}
     <form id="formContainer" action="{% url 'addStudentPage' %}" method="post">
         {% csrf_token %}
         <div id="inputGroup">

@@ -22,5 +22,18 @@
             <li><a href= "{% url 'mainPage' %}" class="nav-link">Log Out</a></li>
         </ul>
     </nav>
-    <script>keepHighlighted();</script>
+    <script>
+        // Get the current page URL
+        var currentPageUrl = window.location.href;
+
+        // Get all the navbar links
+        var navLinks = document.querySelectorAll('.nav-link');
+
+        // Loop through the navbar links and add the "active" class to the appropriate link
+        navLinks.forEach(function (link) {
+            if (link.href === currentPageUrl) {
+                link.classList.add('active');
+            }
+        });
+    </script>
 </body>

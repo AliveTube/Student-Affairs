@@ -662,7 +662,7 @@ fieldset .clearfix::after {
         width: auto;
     }
 
-    .edit-img {
-      width: 30px;
-      /* Add more styling as needed */
+    .error-message{
+      color :red;
+      font-size:25px;
     }
