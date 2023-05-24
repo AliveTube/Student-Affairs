@@ -131,60 +131,30 @@ function DeleteUser(){
   localStorage.removeItem(document.getElementById("id-field").value , JSON.stringify(arr));
   alert("Data Deleted!");
 }
-
-function getStatus(ev) {
-  let tbody = document.getElementById("status-tbody");
-  while (tbody.firstChild) {
-    tbody.removeChild(tbody.firstChild);
-  }
-  for (let key in localStorage) {
-    if (/^\d+$/.test(key) == false)continue;
-    let data = JSON.parse(localStorage.getItem(key));
-    if (data != null && (ev === data[5] || ev === "true")) {
-      tbody.appendChild(document.createElement("tr"));
-      for (let values = 0; values < 5; values++) {
-        tbody.lastChild.appendChild(document.createElement("td"));
-        tbody.lastChild.lastChild.appendChild(
-          document.createTextNode(data[values])
-        );
-      }
-      tbody.lastChild.appendChild(document.createElement("td"));
-      let sel = document.createElement("select");
-      let op1 = document.createElement("option");
-      op1.text = op1.value = "Active";
-      let op2 = document.createElement("option");
-      op2.text = op2.value = "Inactive";
-      sel.appendChild(op1);
-      sel.appendChild(op2);
-      sel.value = data[5];
-      sel.addEventListener('change',()=>{
-        data[5]=sel.value;
-        localStorage.setItem(key,JSON.stringify(data));
-      })
-      tbody.lastChild.lastChild.appendChild(sel);
-    }
-  }
+window.addEventListener("load",()=>{
+  const statusSelectors = document.querySelectorAll('.status-selectors');
+  statusSelectors.forEach((selector) => {
+      selector.addEventListener('change', (event) => {
+          const newStatus = event.target.value;
+          const studentRow = event.target.closest('tr');
+          const id = parseInt(studentRow.querySelector('td:nth-child(2)').textContent);
+          const xhttp = new XMLHttpRequest();
+          xhttp.open("POST", '/Status/Updated/');
+          xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhttp.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+          xhttp.onreadystatechange = function() {
+            if (xhttp.readyState === XMLHttpRequest.DONE && xhttp.status === 200) {
+              location.reload(); // Reload the page after receiving a successful response
+            }
+          };
+          xhttp.send(`ID=${id}&newStatus=${newStatus}`);
+  });
+});
+})
+function getCookie(name) {
+  const cookieValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return cookieValue ? cookieValue[2] : null;
 }
-let btnall = document.getElementById("status-all");
-let btnactive = document.getElementById("status-active");
-let btninactive = document.getElementById("status-inactive");
-window.addEventListener("load", () => {
-  let ev = "true";
-  getStatus(ev);
-});
-btnall.addEventListener("click", () => {
-  let ev = "true";
-  getStatus(ev);
-});
-btnactive.addEventListener("click", () => {
-  let ev = "Active";
-  getStatus(ev);
-});
-btninactive.addEventListener("click", () => {
-  let ev = "Inactive";
-  getStatus(ev);
-});
-
 // --------------------------------------
 function resetDepartmentForm(event){
   event.preventDefault();
@@ -201,22 +171,6 @@ function validateSubmit(){
   else {
     alert("Student data has been registered successfully");
   }
-}
-function storeData(){
-  let stdData=[
-    document.getElementById("name-field").value,
-    document.getElementById("id-field").value,
-    document.getElementById("level-field").value,
-    document.getElementById("department-field").value,
-    document.getElementById("gpa-field").value,
-    document.getElementById("status-field").value,
-    document.getElementById("email-field").value,
-    document.getElementById("phone-field").value,
-    document.getElementById("dob-field").value,
-    document.getElementById("gender-field").value,
-  ];
-  let id = document.getElementById("id-field").value;
-  localStorage.setItem(id , JSON.stringify(stdData));
 }
 function departmentTable(event){
   event.preventDefault();
@@ -235,7 +189,6 @@ function departmentTable(event){
         }
         tbody.lastChild.appendChild(document.createElement("td"));
         let sel = document.createElement("select");
-        
         sel.setAttribute("data-stuid", data[1]);
           if (data[2] < 3) {
               let op1 = document.createElement("option");
@@ -261,26 +214,16 @@ function departmentTable(event){
               sel.appendChild(op6);
               sel.disabled = false;
           }
-
           sel.value = data[3];
-
         tbody.lastChild.lastChild.appendChild(sel);
       }
     }
   }
 }
-function setDepartment(event){
-  let formDpt = document.getElementById("departmentForm");
-  event.preventDefault();
-  let allSelects = formDpt.querySelectorAll("select");
-  for (const select of allSelects){
-    let stuid=select.getAttribute("data-stuid");
-    let student = JSON.parse(localStorage.getItem(stuid));
-    student[3] = select.value;
-    localStorage.setItem(stuid,JSON.stringify(student));
-  }
+function departmentChange(event){
   alert("Department has been changed successfully");
 }
+
 function resetDptPage() {
   document.getElementById("departmentForm").classList.add('hide');
 }
