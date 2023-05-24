@@ -59,7 +59,7 @@ def addStudentPage(request):
             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID is Duplicated.'})
         if not name.isalpha():
              return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name should be chars only.'})
-        if not name.length()<=255:
+        if not len(name) <= 255:
              return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name is too long.'})
 
         student = Student(

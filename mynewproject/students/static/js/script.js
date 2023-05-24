@@ -234,24 +234,30 @@ function handleDelete() {
 }
 
 /* Student Data Page */
-let submitButton = document.querySelector("#SDatasubmit")
-submitButton.addEventListener("click",(event)=>{
-    event.preventDefault()
-    let req = new XMLHttpRequest()
-    req.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let data = JSON.parse(this.responseText);    
-            fillTable(data)  
-        }
-    };
-    req.open("POST", "Stud/");
-    let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-    req.setRequestHeader("X-CSRFToken", csrfToken);
-    let searchval = document.querySelector("#searchB").value
-    req.send(searchval);
-})
+submitButton = document.querySelector("#SDatasubmit")
+if(submitButton!=null){
+    submitButton.addEventListener("click",(event)=>{
+        event.preventDefault()
+        let req = new XMLHttpRequest()
+        req.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let data = JSON.parse(this.responseText);    
+                fillTable(data)  
+            }
+        };
+        req.open("POST", "Stud/");
+        let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+        req.setRequestHeader("X-CSRFToken", csrfToken);
+        let searchval = document.querySelector("#searchB").value
+        req.send(searchval);
+    })
+}
 function fillTable(data) {
     let tbody = document.querySelector("#SDatadata");
+    if(data.length == 0){
+        alert("Student Not Found!")
+        return;
+    }
     tbody.innerHTML = ""; 
     for (let i = 0; i < data.length; i++) {
         let item = data[i];
@@ -303,21 +309,24 @@ function fillTable(data) {
 function handleEditClick(event) {
   event.preventDefault();
   let itemId = this.getAttribute("data-id");
-  window.location.href = "/Edit?id=" + itemId;
+  window.location.href = "Edit/" + itemId;
 }
 
-let resetButton = document.querySelector("#SDatareset")
-resetButton.addEventListener("click",(event)=>{
-    event.preventDefault()
-    let req = new XMLHttpRequest()
-    req.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let data = JSON.parse(this.responseText);    
-            fillTable(data)  
-        }
-    };
-    req.open("POST", "res/");
-    let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-    req.setRequestHeader("X-CSRFToken", csrfToken);
-    req.send();
-})
+resetButton = document.querySelector("#SDatareset")
+if( resetButton!=null){
+    resetButton.addEventListener("click",(event)=>{
+        event.preventDefault()
+        let req = new XMLHttpRequest()
+        req.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let data = JSON.parse(this.responseText);    
+                fillTable(data)  
+            }
+        };
+        req.open("POST", "res/");
+        let csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+        req.setRequestHeader("X-CSRFToken", csrfToken);
+        req.send();
+    })
+}
+/*------------------------------------------*/
