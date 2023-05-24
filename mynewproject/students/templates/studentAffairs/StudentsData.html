@@ -48,9 +48,9 @@
                         <td>{{item.BirthDate}}</td>
                         <td>{{item.Gender}}</td>
                         <td>
-                            <a href = "{% url 'editPage'%}?id={{ item.ID }}">
-                                <img src ="{% static 'images/edit.jpg' %}">
-                            </a></td>
+                        <a href = "Edit/{{item.ID}}">
+                            <img src ="{% static 'images/edit.jpg' %}">
+                        </a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

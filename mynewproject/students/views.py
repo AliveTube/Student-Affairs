@@ -1,6 +1,7 @@
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import Student
 from .models import PageAdmins
 from django.http import JsonResponse
@@ -20,9 +21,24 @@ def loginPage(request):
             return render(request , 'studentAffairs/LogIn.html')
     return render(request , 'studentAffairs/LogIn.html')
 
-def editPage(request):
-    id = request.GET.get('id')
-    return render(request , 'studentAffairs/Edit.html', {'id': id})
+def editPage(request, id):
+    student = Student.objects.get(ID=id)
+    if(request.method == 'POST'):
+        student.Name = request.POST.get('name-field')
+        student.ID = request.POST.get('id')
+        student.Level = request.POST.get('stdLevel')
+        student.Department = request.POST.get('department')
+        student.GPA = request.POST.get('GPA')
+        student.Status = request.POST.get('Status')
+        student.Email = request.POST.get('email')
+        student.Phone = request.POST.get('phone')
+        student.BirthDate = request.POST.get('date')
+        student.Gender = request.POST.get('Gender')
+        if(student.Level < '3'):
+            student.Department = 'General'
+        student.save()
+        return HttpResponseRedirect(reverse('ShowData'))
+    return render(request , 'studentAffairs/Edit.html' , {'student' : student})
 
 def addStudentPage(request):
     if request.method == 'POST':

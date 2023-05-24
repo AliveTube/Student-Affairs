@@ -14,7 +14,6 @@ function keepHighlighted() {
 }
 
 /* Login JS */
-localStorage.setItem("Ayaali22","Aya");
 function validateLogIn(){
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;

@@ -14,15 +14,16 @@
         <legend id="addStdLegend">
             Edit Student
         </legend>
-        <form id="formContainer" method="POST" onsubmit="return false">
+        <form id="formContainer" method="POST">
+            {% csrf_token %}
             <div id="inputGroup">
                 <div id="nameDiv">
                     <label for="name-field">Name</label>
-                    <input type="text" id="name-field" name="name-field" required placeholder="Enter student name">
+                    <input type="text" id="name-field" name="name-field" required placeholder="Enter student name" value = "{{student.Name}}">
                 </div>
                 <div id="idDiv">
                     <label for="id-field">ID</label>
-                    <input type="text" id="id-field" name="id" required placeholder="Enter student ID">
+                    <input type="text" id="id-field" name="id" required placeholder="Enter student ID" value = "{{ student.ID }}" pattern="\d+">
                 </div>
             </div>
 
@@ -30,21 +31,21 @@
                 <div id="levelDiv">
                     <label for="level-field">Level</label>
                     <select name="stdLevel" id="level-field" onchange="return depart()">
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                        <option value=3>3</option>
-                        <option value=4>4</option>
+                        <option value=1 {% if student.Level == 1 %}selected{% endif %}>1</option>
+                        <option value=2 {% if student.Level == 2 %}selected{% endif %}>2</option>
+                        <option value=3 {% if student.Level == 3 %}selected{% endif %}>3</option>
+                        <option value=4 {% if student.Level == 4 %}selected{% endif %}>4</option>
                     </select>
                 </div>
                 <div id="departmentDiv">
                     <label for="department-field">Department</label>
-                    <select name="department" id="department-field" disabled default="General" value="General">
-                        <option value="General">General</option>
-                        <option value="CS">CS</option>
-                        <option value="IS">IS</option>
-                        <option value="AI">AI</option>
-                        <option value="IT">IT</option>
-                        <option value="DS">DS</option>
+                    <select name="department" id="department-field" default="General" value="General" {% if student.Level < '3' %} disabled{% endif %}>
+                        <option value="General" {% if student.Department == 'General' %}selected{% endif %}>General</option>
+                        <option value="CS" {% if student.Department == 'CS' %}selected{% endif %}>CS</option>
+                        <option value="IS" {% if student.Department == 'IS' %}selected{% endif %}>IS</option>
+                        <option value="AI" {% if student.Department == 'AI' %}selected{% endif %}>AI</option>
+                        <option value="IT" {% if student.Department == 'IT' %}selected{% endif %}>IT</option>
+                        <option value="DS" {% if student.Department == 'DS' %}selected{% endif %}>DS</option>
                     </select>
                 </div>
             </div>
@@ -52,13 +53,13 @@
             <div id="inputGroup">
                 <div id="GPADiv">
                     <label for="gpa-field">GPA</label>
-                    <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter student GPA">
+                    <input type="number" min="0" max="4" step="0.01" id="gpa-field" name="GPA" placeholder="Enter student GPA" value = "{{ student.GPA }}">
                 </div>
                 <div id="statusDiv">
                     <label for="status-field">Status</label>
                     <select name="Status" id="status-field" value="Active">
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                        <option value="Active" {% if student.Status == 'Active' %}selected{% endif %}>Active</option>
+                        <option value="Inactive" {% if student.Status == 'Inactive' %}selected{% endif %}>Inactive</option>
                     </select>
                 </div>
             </div>
@@ -66,30 +67,30 @@
             <div id="inputGroup">
                 <div id="emailDiv">
                     <label for="email-field">Email</label>
-                    <input type="email" id="email-field" name="email" required placeholder="Enter student email">
+                    <input type="email" id="email-field" name="email" required placeholder="Enter student email" value = "{{ student.Email }}">
                 </div>
                 <div id="phoneDiv">
                     <label for="phone-field">Phone Number</label>
-                    <input type="text" id="phone-field" name="phone" required placeholder="Enter student phone">
+                    <input type="text" id="phone-field" name="phone" required placeholder="Enter student phone" value = "{{ student.Phone }}" pattern = '\d+'>
                 </div>
             </div>
 
             <div id="inputGroup">
                 <div id="dobDiv">
                     <label for="studentBD">Date of birth</label>
-                    <input type="date" id="dob-field" name="date" required>
+                    <input type="date" id="dob-field" name="date" required value="{{ student.BirthDate|date:'Y-m-d' }}">
                 </div>
                 <div id="genderDiv">
                     <label for="studentGender">Gender</label>
                     <select name="Gender" id="gender-field" value="Male">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="Male" {% if student.Gender == 'Male' %}selected{% endif %}>Male</option>
+                        <option value="Female" {% if student.Gender == 'Female' %}selected{% endif %}>Female</option>
                     </select>
                 </div>
             </div>
             <class id="both">
                 <div id="subButton">
-                    <input type="submit" id="submitStudent" value="Save Changes" onclick="return validate()">
+                    <input type="submit" id="submitStudent" value="Save Changes">
                 </div>
                 <div id="del">
                     <button id="DeleteButton" onclick="document.getElementById('id01').style.display='block'">Delete</button>
