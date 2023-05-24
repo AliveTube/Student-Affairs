@@ -2,50 +2,51 @@
 {% load static %}
 
 {% block content %}
-  <!DOCTYPE html>
-  <html>
+    <!DOCTYPE html>
+    <html>
     <head>
-      <title>Students Status</title>
+        <title>Students Status</title>
     </head>
     <body>
-      <br><br><br><br><br>
-      <fieldset id="statusField">
+    <br><br><br><br><br>
+    <fieldset id="statusField">
         <legend>Student Status</legend>
-          <input type="submit" value="All Students" id="status-all">
-          <span>
-            <input type="submit" value="Active Students" id="status-active">
-            <input type="submit" value="In-Active Students" id="status-inactive">
-          </span>
+        <a href={% url 'statusPage' %}> <input type="submit" id="status-all" value="All Students" name='allStatus'></a>
+        <span>
+            <a href={% url 'actives' %}> <input type="submit" id="status-active" value="Active Students" name='activeStatus'></a>
+            <a href={% url 'inActives' %}> <input type="submit" id="status-inactive" value="In-Active Students" name='inactiveStatus'></a>
+        </span>
         <div>
-          <table>
-            <thead>
-              <th>Name</th>
-              <th>ID</th>
-              <th>Year</th>
-              <th>Department</th>
-              <th>GPA</th>
-              <th>Status</th>
-            </thead>
-            <tbody id="status-tbody">
-              {% for student in students %}
-                <tr>
-                  <td>{{ student.Name }}</td>
-                  <td>{{ student.ID }}</td>
-                  <td>{{ student.Level }}</td>
-                  <td>{{ student.Department }}</td>
-                  <td>{{ student.GPA }}</td>
-                  <td>{{ student.Status }}</td>
-                  <td>{{ student.Email }}</td>
-                  <td>{{ student.Phone }}</td>
-                  <td>{{ student.BirthDate }}</td>
-                  <td>{{ student.Gender }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+            <table>
+                <thead>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Level</th>
+                <th>Department</th>
+                <th>GPA</th>
+                <th>Status</th>
+                </thead>
+                <tbody id="status-tbody">
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.Name }}</td>
+                        <td>{{ student.ID }}</td>
+                        <td>{{ student.Level }}</td>
+                        <td>{{ student.Department }}</td>
+                        <td>{{ student.GPA }}</td>
+                        <td>
+                            <select class="status-selectors">
+                                <option value="Active" {% if student.Status == 'Active' %}selected{% endif %}>Active</option>
+                                <option value="Inactive" {% if student.Status == 'Inactive' %}selected{% endif %}>Inactive</option>
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
-      </fieldset>
-      <script src="{% static 'js/script.js' %}"></script>
+    </fieldset>
+    <script src="{% static 'js/script.js' %}"></script>
     </body>
-  </html>
+    </html>
 {% endblock content %}

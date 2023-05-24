@@ -78,14 +78,20 @@ def addStudentPage(request):
         return render(request, 'studentAffairs/AddNewStudent.html')
     return render(request, 'studentAffairs/AddNewStudent.html')
 
-
 def departmentPage(request):
     if request.method == 'POST':
-        ID = request.POST.get('stuID')
-        student = Student.objects.filter(ID=ID)
-        if student.exists():
-            return render(request, 'studentAffairs/Department.html', {'student': student})
+        id = request.POST.get('stuID')
+        student = Student.objects.get(ID=id)
+        return render(request, 'studentAffairs/Department.html', {'student': student})
     return render(request, 'studentAffairs/Department.html')
+
+def departmentChange(request , id):
+    if request.method == 'POST':
+        student = Student.objects.get(ID=id)
+        newDepartment = request.POST.get('department')
+        student.Department = newDepartment
+        student.save()
+    return HttpResponseRedirect(reverse('departmentPage'))
 
 def homePage(request):
     return render(request , 'studentAffairs/Homepage.html')
@@ -94,6 +100,21 @@ def statusPage(request):
     students = Student.objects.all()
     return render(request , 'studentAffairs/Status.html' , {'students' : students})
 
+def showActiveStudents(request):
+    students = Student.objects.filter(Status="Active")
+    return render(request, 'studentAffairs/Status.html', {'students': students})
+
+def showInActiveStudents(request):
+    students = Student.objects.filter(Status="Inactive")
+    return render(request, 'studentAffairs/Status.html', {'students': students})
+
+def updateStatus(request):
+    if request.method == "POST":
+        student = Student.objects.get(ID=int(request.POST.get("ID")))
+        student.Status = request.POST.get('newStatus')
+        student.save()
+        students = Student.objects.all()
+        return render(request, 'studentAffairs/Status.html', {'students': students})
 
 def ShowPost(request):
      if request.method == 'POST':

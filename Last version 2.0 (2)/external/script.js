@@ -266,7 +266,6 @@ function validateSubmit(){
     flag=false;
   }
   else {
-    storeData();
     alert("Student data has been registered successfully");
   }
 }
@@ -303,7 +302,6 @@ function departmentTable(event){
         }
         tbody.lastChild.appendChild(document.createElement("td"));
         let sel = document.createElement("select");
-        
         sel.setAttribute("data-stuid", data[1]);
           if (data[2] < 3) {
               let op1 = document.createElement("option");
@@ -337,6 +335,7 @@ function departmentTable(event){
     }
   }
 }
+
 function setDepartment(event){
   let formDpt = document.getElementById("departmentForm");
   event.preventDefault();

@@ -10,17 +10,22 @@
     </head>
     <body>
         <br>
-        <form id = "searchDepartment" method = "POST">
+        <form id = "searchDepartment" method = "POST" action = {% url 'departmentPage' %}>
             {% csrf_token %}
             <fieldset id = "searchBarDep">
                 <legend>Search with ID</legend>
                 <input type = "search" name = "stuID" id = "searchByID" placeholder="eg. 20210011" required>
                 <input type = "submit" id = "submitReset" value="Submit"></input>
-                <input type = "reset" id = "submitReset" ></input>
+                <input type = "reset" id = "submitReset" onclick = "resetDepartmentForm(event);"></input>
             </fieldset>
         </form>
         <br>
-        <form id = "departmentForm" style = "display: none;" {% if student %} style = "display: block;" {% endif %}>
+        {% if student %}
+        <form id="departmentForm" style="display: block;" action = 'departmentChange/{{student.ID}}' method = "POST">
+        {% else %}
+        <form id="departmentForm" style="display: none;">
+        {% endif %}
+            {% csrf_token %}
             <fieldset id = "searchBarDep">
                 <legend> Assign Department</legend>
                 <br>
@@ -33,9 +38,21 @@
                         <td>{{ student.Name }}</td>
                         <td>{{ student.ID }}</td>
                         <td>{{ student.Level }}</td>
-                        <td>{{ student.Department }}</td>
+                        <td>
+                            <select name="department" default = {{ student.Department }} {% if student.Level < '3' %} disabled {% endif %}>
+                                <option value="General" {% if student.Department == 'General' %}selected{% endif %}>General</option>
+                                <option value="CS" {% if student.Department == 'CS' %}selected{% endif %}>CS</option>
+                                <option value="IS" {% if student.Department == 'IS' %}selected{% endif %}>IS</option>
+                                <option value="AI" {% if student.Department == 'AI' %}selected{% endif %}>AI</option>
+                                <option value="IT" {% if student.Department == 'IT' %}selected{% endif %}>IT</option>
+                                <option value="DS" {% if student.Department == 'DS' %}selected{% endif %}>DS</option>
+                            </select>
+                        </td>
                     </tbody>
                 </table>
+                <div id = "submitButton">
+                    <button type = "submit" id = "submitDepChange"  onclick = "departmentChange(event)"> Submit Changes</button>
+                </div>
             </fieldset>
         </form>
     </body>
