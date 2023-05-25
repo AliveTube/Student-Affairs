@@ -64,6 +64,16 @@ def addStudentPage(request):
         phone = request.POST.get('phone')
         date_of_birth = request.POST.get('date')
         gender = request.POST.get('Gender')
+        if not student_id.isdigit():
+             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID should be numbers only.'})
+        check = Student.objects.filter(ID=student_id)
+        if check:
+            return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID is Duplicated.'})
+        if not name.isalpha():
+             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name should be chars only.'})
+        if not len(name) <= 255:
+             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name is too long.'})
+
         student = Student(
             Name=name,
             ID=student_id,
