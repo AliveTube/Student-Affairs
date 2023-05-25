@@ -39,7 +39,7 @@
                         <td>{{ student.ID }}</td>
                         <td>{{ student.Level }}</td>
                         <td>
-                            <select name="department" default = {{ student.Department }} {% if student.Level < '3' %} disabled {% endif %}>
+                            <select name="department" default = {{ student.Department }} {% if student.Level < 3 %} disabled {% endif %}>
                                 <option value="General" {% if student.Department == 'General' %}selected{% endif %}>General</option>
                                 <option value="CS" {% if student.Department == 'CS' %}selected{% endif %}>CS</option>
                                 <option value="IS" {% if student.Department == 'IS' %}selected{% endif %}>IS</option>
