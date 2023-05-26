@@ -83,7 +83,7 @@ if(submitButton!=null){
 function fillTable(data) {
     let tbody = document.querySelector("#SDatadata");
     if(data.length == 0){
-        alert("Student Not Found!")
+        alert("Student Not Found or Inactive!")
         return;
     }
     tbody.innerHTML = "";
@@ -155,4 +155,13 @@ if( resetButton!=null){
         req.setRequestHeader("X-CSRFToken", csrfToken);
         req.send();
     })
+}
+function successful(){
+  Submit = document.querySelector("#submitStudent")
+  if( Submit!=null){
+      Submit.addEventListener("click",(event)=>{
+        alert("Student Added Successfully!")
+      })
+  }
+
 }

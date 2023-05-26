@@ -21,7 +21,8 @@ def loginPage(request):
         if PageAdmins.objects.filter(username=username, password=password).exists():
             return redirect('homePage')
         else:
-            return render(request, 'studentAffairs/LogIn.html')
+            error_message = "Username or Password is incorrect! Please Try Again."
+            return render(request, 'studentAffairs/LogIn.html', {'error': error_message})
     return render(request, 'studentAffairs/LogIn.html')
 
 def editPage(request, id):
@@ -67,9 +68,6 @@ def addStudentPage(request):
         gender = request.POST.get('Gender')
         if not student_id.isdigit():
              return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID should be numbers only.'})
-        check = Student.objects.filter(ID=student_id)
-        if check:
-            return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID is Duplicated.'})
         if not (isValidName(name)):
             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name should be characters only.'})
         if not len(name) <= 255:
@@ -88,7 +86,7 @@ def addStudentPage(request):
             Gender=gender
         )
         if Student.objects.filter(ID=student.ID).exists():
-            error_message = "Student ID already exists. Please choose a different ID."
+            error_message = "Student ID already exists. Please enter a different ID."
             return render(request, 'studentAffairs/AddNewStudent.html', {'error': error_message})
         student.save()
         return render(request, 'studentAffairs/AddNewStudent.html')
@@ -143,7 +141,7 @@ def ShowPost(request):
     if request.method == 'POST':
         search_value = request.body.decode('utf-8')
         if search_value is not None:
-            data = Student.objects.filter(Name__istartswith=search_value)
+            data = Student.objects.filter(Name__istartswith=search_value,Status="Active")
         else:
             data = Student.objects.all()
         serialized_data = serializers.serialize('json', data)

@@ -96,6 +96,11 @@
         <div id="subButtonAdd">
             <input type="submit" id="submitStudent" value="Add Student" >
         </div>
+        {% if error != None %}
+        <script>
+            successful();
+        </script>
+        {% endif %}
     </form>
 </fieldset>
 </body>
