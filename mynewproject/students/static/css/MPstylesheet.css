@@ -41,6 +41,7 @@ a{
     color: #fff;
 }
 #imageBox{
+    position: relative;
     width: 50%;
     margin:0 19px 0 19px;
     transition: 0.7s;

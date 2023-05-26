@@ -216,7 +216,7 @@ footer p {
 }
 /*---------------------------------------------*/
 /* Search bar styles */
-#searchbar {
+#searchbar , #searchBarDep {
   margin-left: 1%;
   margin-top: 1%;
   margin-bottom: 1%;
@@ -328,7 +328,14 @@ legend {
 
 #searchBarDep {
   padding-left: 12px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+#searchBarDep input {
+  border: 1px solid #6c6d6eb9;
+  border-width: 1px;
+  height: 35px;
+  outline: none;
 }
 ::placeholder {
   font-size: 16px;
@@ -340,6 +347,7 @@ legend {
 }
 #searchByID {
   border-radius: 5px;
+  width: 700px;
 }
 #submitReset,#submitDepChange,#submitStudent {
   border-radius: 8px;
