@@ -17,6 +17,11 @@
                 <input type = "search" name = "stuID" id = "searchByID" placeholder="eg. 20210011" required>
                 <input type = "submit" id = "submitReset" value="Submit"></input>
                 <input type = "reset" id = "submitReset" onclick = "resetDepartmentForm(event);"></input>
+                {% if error_message %}
+                    <div class="error-message">
+                        {{ error_message }}
+                    </div>
+                {% endif %}
             </fieldset>
         </form>
         <br>
@@ -51,7 +56,7 @@
                     </tbody>
                 </table>
                 <div id = "submitButton">
-                    <button type = "submit" id = "submitDepChange"  onclick = "departmentChange(event)"> Submit Changes</button>
+                    <button type = "submit" id = "submitDepChange"  onclick = "departmentChange(event)"> Submit Changes </button>
                 </div>
             </fieldset>
         </form>

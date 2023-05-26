@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from pyexpat.errors import messages
+import re
 
 from .models import Student
 from .models import PageAdmins
@@ -10,10 +11,8 @@ from django.http import JsonResponse
 from django.core import serializers
 import json
 
-
 def mainPage(request):
     return render(request, 'studentAffairs/Main_Page.html')
-
 
 def loginPage(request):
     if request.method == 'POST':
@@ -24,7 +23,6 @@ def loginPage(request):
         else:
             return render(request, 'studentAffairs/LogIn.html')
     return render(request, 'studentAffairs/LogIn.html')
-
 
 def editPage(request, id):
     student = Student.objects.get(ID=id)
@@ -51,6 +49,9 @@ def delete(request, id):
     student.delete()
     return HttpResponseRedirect(reverse('ShowData'))
 
+def isValidName(name):
+    pattern = r'^[A-Za-z\s]+$'
+    return re.match(pattern, name) is not None
 
 def addStudentPage(request):
     if request.method == 'POST':
@@ -69,10 +70,10 @@ def addStudentPage(request):
         check = Student.objects.filter(ID=student_id)
         if check:
             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'ID is Duplicated.'})
-        if not name.isalpha():
-             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name should be chars only.'})
+        if not (isValidName(name)):
+            return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name should be characters only.'})
         if not len(name) <= 255:
-             return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name is too long.'})
+            return render(request, 'studentAffairs/AddNewStudent.html', {'error': 'Name is too long.'})
 
         student = Student(
             Name=name,
@@ -95,40 +96,40 @@ def addStudentPage(request):
 
 
 def departmentPage(request):
+    error_message = None
     if request.method == 'POST':
         id = request.POST.get('stuID')
-        student = Student.objects.get(ID=id)
-        return render(request, 'studentAffairs/Department.html', {'student': student})
-    return render(request, 'studentAffairs/Department.html')
+        try:
+            student = Student.objects.get(ID=id)
+            return render(request, 'studentAffairs/Department.html', {'student': student})
+        except Student.DoesNotExist:
+            error_message = 'Invalid ID. Student does not exist.'
+    return render(request, 'studentAffairs/Department.html', {'error_message': error_message})
 
 
 def departmentChange(request, id):
     if request.method == 'POST':
         student = Student.objects.get(ID=id)
         newDepartment = request.POST.get('department')
-        student.Department = newDepartment
-        student.save()
+        if(student.Level == 3):
+            student.Department = newDepartment
+            student.save()
     return HttpResponseRedirect(reverse('departmentPage'))
-
 
 def homePage(request):
     return render(request, 'studentAffairs/Homepage.html')
-
 
 def statusPage(request):
     students = Student.objects.all()
     return render(request, 'studentAffairs/Status.html', {'students': students})
 
-
 def showActiveStudents(request):
     students = Student.objects.filter(Status="Active")
     return render(request, 'studentAffairs/Status.html', {'students': students})
 
-
 def showInActiveStudents(request):
     students = Student.objects.filter(Status="Inactive")
     return render(request, 'studentAffairs/Status.html', {'students': students})
-
 
 def updateStatus(request):
     if request.method == "POST":
@@ -137,7 +138,6 @@ def updateStatus(request):
         student.save()
         students = Student.objects.all()
         return render(request, 'studentAffairs/Status.html', {'students': students})
-
 
 def ShowPost(request):
     if request.method == 'POST':
@@ -150,12 +150,10 @@ def ShowPost(request):
         deserialized_data = json.loads(serialized_data)
         return JsonResponse(deserialized_data, safe=False)
 
-
 def ShowData(request):
     if request.method == 'GET':
         data = Student.objects.all()
         return render(request, 'studentAffairs/StudentsData.html', {'data': data})
-
 
 def reset(request):
     if request.method == 'POST':

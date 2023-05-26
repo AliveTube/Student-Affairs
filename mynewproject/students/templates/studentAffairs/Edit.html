@@ -93,19 +93,15 @@
                     <input type="submit" id="submitStudent" value="Save Changes">
                 </div>
                 <div id="del">
-                    <button id="DeleteButton" onclick="document.getElementById('id01').style.display='block'">
-                        <td><a href="delete/{{ student.ID }}"
-                           onclick="return confirm('Are you sure you want to delete this student?')">Delete</a></td>
-                    </button>
+                    <a href="{% url 'delete' student.ID %}" onclick="return confirm('Are you sure you want to delete this student?')">
+                        <input id="DeleteButton" onclick="document.getElementById('id01').style.display='block'" value = "Delete" disabled>
+                    </a>
                 </div>
             </class>
                 </form>
             </div>
         </form>
     </fieldset>
-    <script>
-        search();
-    </script>
 </body>
 </html>
 {% endblock content %}

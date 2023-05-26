@@ -300,7 +300,6 @@ table tr td img {
   width: 30px;
 }
 table tr td select {
-  width: 35%;
   text-align: center;
   background-color: #fff;
   border-radius: 8px;
@@ -335,10 +334,9 @@ legend {
   font-size: 16px;
 }
 #addStudentField {
-  width: auto;
+  width: 40%;
   display: block;
   font-size: 29px;
-  position: absolute;
 }
 #searchByID {
   border-radius: 5px;
@@ -356,9 +354,8 @@ legend {
 #submitDepChange {
   padding: 8px;
 }
-#submitButton {
+#submitButton,#DeleteButton {
   padding: 6px;
-  /* margin-left:50%; */
   text-align: center;
 }
 #departmentTable select{
@@ -375,6 +372,7 @@ legend {
   align-items: center;
   justify-content: center;
   padding: 25px 30px;
+  display: block;
 }
 #inputGroup {
   display: flex;
@@ -391,22 +389,20 @@ legend {
 #formContainer select {
   font-size: 20px;
   border-radius: 8px;
-  height: 30px;
+  height: 40px;
   outline: 0;
 }
 
 #formContainer label {
   font-size: 26px;
   font-weight: bold;
-  color: #083d8d;
+  color: rgb(8, 61, 141);
   text-align: left;
   margin-bottom: 5px;
 }
 
 #addStudentField {
-  margin-top: 20px;
-  margin-left: 23rem;
-  margin-right: 23rem;
+  margin: 28px auto;
   padding-left: 10px;
   background-color: white;
   border-radius: 3px;
@@ -415,6 +411,9 @@ legend {
 }
 #addStudentField input {
   padding: 4px;
+}
+#addStudentField #submitStudent:hover {
+  background-color: rgb(9, 84, 197);
 }
 #addStudentField select {
   height: 41px;
@@ -435,8 +434,7 @@ legend {
 }
 #statusField {
   border-color: #083d8d;
-  margin-left: 12px;
-  margin-right: 8px;
+  margin:auto 15px;
 }
 #statusField input {
   width: 8%;
@@ -448,21 +446,22 @@ legend {
   background-color: #083d8d;
   border: 1px solid #083d8d;
   color: #fff;
+  /* margin-left: 20px; */
 }
 #statusField input:hover {
   cursor: pointer;
 }
-#statusField > input {
-  margin-left: 1.1%;
+#statusField input {
+  margin-left: 20px;
 }
 #statusField span {
-  margin-left: 70.3%;
+  margin-left: 68.32%;
+  position: relative;
 }
 #statusField legend {
   font-size: 135%;
   margin-left: 1%;
 }
-
 #both {
     margin-left: 100px;
 }
@@ -489,17 +488,16 @@ legend {
 #DeleteButton {
     color: white;
     border: 1px solid #f44336;
-    outline: none;
+    /* outline: none; */
     background-color: #f44336;
     font-family: "Times New Roman", Times, serif;
     width: 30%;
     border-radius: 8px;
     padding: 5px;
     border: 20px;
+    height: 41px;
     font-size: 20px;
 }
-
-
 #DeleteButton:hover {
   background-color: rgb(197, 0, 0);
   cursor: pointer;
@@ -666,4 +664,3 @@ fieldset .clearfix::after {
   color :red;
   font-size:25px;
 }
-

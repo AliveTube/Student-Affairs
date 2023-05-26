@@ -9,12 +9,17 @@
     </head>
     <body>
         <br><br>
-        <div id="searchbar">
-            {% csrf_token %}
-            <input type="text" id="searchB" name="search_field" placeholder="Search With Name...">
-            <button type="submit" id="SDatasubmit" >Search</button>
-            <button type="reset" id="SDatareset" >Reset</button>
-        </div>
+        <fieldset class="Studentdata-field">
+            <legend >
+                Search with Name
+            </legend>
+                <div id="searchbar">
+                    {% csrf_token %}
+                    <input type="text" id="searchB" name="search_field" placeholder="Search With Name...">
+                    <button type="submit" id="SDatasubmit" >Search</button>
+                    <button type="reset" id="SDatareset" >Reset</button>
+                </div>
+        </fieldset>
         <br>
         <fieldset class="Studentdata-field">
             <legend>Students Data</legend>
