@@ -30,15 +30,12 @@ def editPage(request, id):
     if request.method == 'POST':
         student.Name = request.POST.get('name-field')
         student.Level = request.POST.get('stdLevel')
-        student.Department = request.POST.get('department')
         student.GPA = request.POST.get('GPA')
         student.Status = request.POST.get('Status')
         student.Email = request.POST.get('email')
         student.Phone = request.POST.get('phone')
         student.BirthDate = request.POST.get('date')
         student.Gender = request.POST.get('Gender')
-        if student.Level < '3':
-            student.Department = 'General'
         student.save()
         return HttpResponseRedirect(reverse('ShowData'))
 
@@ -109,7 +106,7 @@ def departmentChange(request, id):
     if request.method == 'POST':
         student = Student.objects.get(ID=id)
         newDepartment = request.POST.get('department')
-        if(student.Level == 3):
+        if(student.Level >= 3):
             student.Department = newDepartment
             student.save()
     return HttpResponseRedirect(reverse('departmentPage'))
