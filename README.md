@@ -38,7 +38,7 @@ Please ensure that your contributions adhere to the coding standards, convention
 ## Team members
 | Name | ID | Email |
 |------|----|-------|
-| Aya Ali Hassan Ali | 20210083 |  |
+| Aya Ali Hassan Ali | 20210083 | ayaali95248@gmail.com  |
 | Maya Ayman Zain El-Din | 20210508 | mayazaineldin@gmail.com |
 | Mohamed Khaled El-Sayed | 20210338 |  |
 | Ali Tarek Ahmed | 20210252 |  |
