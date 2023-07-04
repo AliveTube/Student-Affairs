@@ -36,7 +36,7 @@ Contributions to the Student Affairs website are welcome. If you would like to c
 Please ensure that your contributions adhere to the coding standards, conventions, and best practices followed in the project.
 
 ## Team members
-* [**Aya Ali**](https://github.com/ayaaalli) 
+* [**Aya Ali**](https://github.com/AyaA1i)
 * [**Maya Ayman Zain El-Din**](https://github.com/MayaZayn)
 * [**Mohamed Khaled El-Sayed**](https://github.com/emailam)
 * [**Ali Tarek Ahmed**](https://github.com/Alitarek517)
